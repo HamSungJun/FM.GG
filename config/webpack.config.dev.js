@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: "./src/Root.jsx",
+    entry: "./src/components/Root.jsx",
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname + "../build")
@@ -49,6 +49,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.resolve("../build"),
+        historyApiFallback: true,
         index: "index.html",
         port: 9000
     }
