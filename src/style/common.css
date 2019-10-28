@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NotoSansKR";
+}
+
+@font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 100;
+    src: local('../../assets/NotoSansKR-Thin-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 300;
+    src: local('../../assets/NotoSansKR-Light-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 350;
+    src: local('../../assets/NotoSansKR-DemiLight-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 400;
+    src: local('../../assets/NotoSansKR-Regular-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 500;
+    src: local('../../assets/NotoSansKR-Medium-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 700;
+    src: local('../../assets/NotoSansKR-Bold-Hestia') format('woff');
+  }
+  
+  @font-face{
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    font-weight: 900;
+    src: local('../../assets/NotoSansKR-Black-Hestia') format('woff');
+  }
+

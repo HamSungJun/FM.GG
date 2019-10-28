@@ -1,15 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: "./src/Root.js",
+    entry: "./src/components/Root.jsx",
     output: {
-        filename: "bundle.js",
+        filename: "bundle.[contenthash].js",
         path: path.resolve(__dirname + "/build")
     },
-    mode: "none",
+    mode: "production",
     module: {
         rules:[
             {
@@ -34,6 +34,17 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|woff)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[ext]",
+                        outputPath: "build/"
+                    }
+                }
             }
         ]
     },
@@ -43,7 +54,7 @@ module.exports = {
             filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.css'
+            filename: './style/style.css'
         }),
         new CleanWebpackPlugin()
     ],

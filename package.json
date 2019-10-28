@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.config.dev --hot",
-    "build": "webpack --config ./config/webpack.config.prod"
+    "build": "webpack --config webpack.config.prod"
   },
   "author": "",
   "license": "ISC",
@@ -23,12 +23,14 @@
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-icons": "^3.8.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
