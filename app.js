@@ -7,6 +7,6 @@ app.use("*", (req, res) => {
     res.sendFile(path.resolve(__dirname,"build","index.html"));
 })
 
-app.listen(80, () => {
+app.listen(9000, () => {
     console.log('Example app listening on port 80!');
 })
