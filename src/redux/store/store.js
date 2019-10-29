@@ -1,6 +1,17 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {logger} from 'redux-logger'
+import createSagaMiddleware from 'redux-saga';
+import {logger} from 'redux-logger';
+import summonerReducer from '../reducers/summonerReducer';
+import rootSaga from '../sagas/saga';
 
-let store = createStore(appReducer,applyMiddleware(logger));
+const sagaMiddleware = createSagaMiddleware();
+
+let appReducer = combineReducers({
+    summoner : summonerReducer
+});
+
+let store = createStore(appReducer,applyMiddleware(logger, sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
