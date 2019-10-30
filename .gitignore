@@ -1,4 +1,5 @@
 node_modules
 ssh
 build
-key
+key.js
+key/
