@@ -58,6 +58,6 @@ module.exports = {
         contentBase: path.resolve("../build"),
         historyApiFallback: true,
         index: "index.html",
-        port: 9000
+        port: 8000
     }
 };
