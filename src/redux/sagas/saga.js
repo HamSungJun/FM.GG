@@ -3,6 +3,7 @@ import {put, takeEvery, all, select, call} from 'redux-saga/effects';
 import {SERVER_URL} from '../globals/global';
 import * as summonerAction from '../actions/summonerAction'
 import axios from 'axios';
+import history from '../../history/history.js';
 
 export function fetchSummonerApi(summonerName) {
     
@@ -17,10 +18,12 @@ export function* fetchSummoner() {
     const storeState = yield select();
     const {response, error} = yield call(fetchSummonerApi, storeState.summoner.summonerName);
     if(response){
-        yield put(summonerAction.fetchSummonerFulfilled(response.data))
+        yield put(summonerAction.fetchSummonerFulfilled(response.data));
+        yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName}`);
     } else {
-        yield put(summonerAction.fetchSummonerRejected(error.response.status))
+        yield put(summonerAction.fetchSummonerRejected(error.response.status));
     }
+    
 }
 
 export function* watchFetchSummoner() {

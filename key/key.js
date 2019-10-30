@@ -1,1 +1,1 @@
-module.exports = RIOT_API_KEY = "RGAPI-462ec840-9205-4311-a58e-58a435f6aec0"
+module.exports = RIOT_API_KEY = "RGAPI-671f9f21-9b78-477f-b753-8d5a96adf66f"

@@ -1,50 +1,17 @@
 import React from 'react';
+import Logo from './Logo.jsx'
+import Navigation from './Navigation.jsx'
 import {connect} from 'react-redux'
-import {Box, Title, SubTitle, InputBox, TextInput, ArrowBox, ColorText, Container} from '../styled/StyledHome.js'
+import {Box, SubTitle, InputBox, TextInput, ArrowBox, Container} from '../styled/StyledComponents'
 import {MdArrowDropDown} from 'react-icons/md'
 import * as summonerAction from '../redux/actions/summonerAction'
-
-const TITLE_THEME = [
-    "#99B898",
-    "#FECEA8",
-    "#FF847C",
-    "#E84A5F",
-    "#2A363B"
-];
+import {withRouter} from 'react-router-dom';
 
 class Home extends React.Component{
 
     constructor(props){
 
         super(props);
-        this.state = {
-            title_theme : [],
-            title_color_direction : 'add'
-        }
-
-        this.startTitleColoring = this.startTitleColoring.bind(this);
-       
-    }
-
-    componentDidMount(){
-
-        setInterval(this.startTitleColoring,500);
-
-    }
-
-    startTitleColoring(){
-
-        let prevTitleTheme = this.state.title_theme;
-        
-        if(this.state.title_color_direction === "add" && prevTitleTheme.length < 5){
-            prevTitleTheme.push(TITLE_THEME[prevTitleTheme.length]);
-        } else {
-            prevTitleTheme.unshift(prevTitleTheme.pop());
-        }
-
-        return this.setState({
-            title_theme : prevTitleTheme
-        })
         
     }
 
@@ -52,14 +19,9 @@ class Home extends React.Component{
         const {summonerState, summonerDispatch} = this.props
         return(
             <Box>
+                <Navigation searchShow={"none"} />
                 <Container>
-                    <Title color={"white"}>
-                        <ColorText color={this.state.title_theme[0]}>F</ColorText>
-                        <ColorText color={this.state.title_theme[1]}>M</ColorText>
-                        <ColorText color={this.state.title_theme[2]}>.</ColorText>
-                        <ColorText color={this.state.title_theme[3]}>G</ColorText>
-                        <ColorText color={this.state.title_theme[4]}>G</ColorText>
-                    </Title>
+                    <Logo logoType={"Home"} color={"white"} />
                     <SubTitle color={"white"}>15분에 서렌합시다.</SubTitle>
                     <InputBox>
                         <TextInput
@@ -102,11 +64,10 @@ const mapDispatchToProps = (dispatch) => {
                 }
             }
         }
-        
     }
 
 }
 
-Home = connect(mapStateToProps, mapDispatchToProps)(Home);
+Home = withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
 
 export default Home;

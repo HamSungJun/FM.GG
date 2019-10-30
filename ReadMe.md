@@ -4,6 +4,7 @@
 
 - `Riot Games Api`를 통한 리그오브레전드 정보 사이트 만들기
 - http://ec2-15-164-102-54.ap-northeast-2.compute.amazonaws.com
+
 ## Tech Stack
 
 | Frontend | Backend | Database | Hosting |
@@ -15,3 +16,9 @@
 | `Styled-Components`|
 | `Webpack`|
 | `Babel`|
+
+## 개발 이미지
+
+| FMGG HOME |
+|:--------:|
+|![FMGG_HOME](./gif/FMGG_HOME.gif)|
