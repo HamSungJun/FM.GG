@@ -36,13 +36,26 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|jpeg|woff)$/,
+                test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "file-loader",
+                    loader: "url-loader",
                     options: {
-                        name: "[name].[ext]",
-                        outputPath: "build/"
+                        limit: 10000,
+                        name: "images/[name].[ext]",
+                        fallback: "file-loader",
+                    }
+                }
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "url-loader",
+                    options: {
+                        name: "fonts/[name].[ext]",
+                        limit: 10000,
+                        fallback: "file-loader"
                     }
                 }
             }
