@@ -19,7 +19,7 @@ class Home extends React.Component{
         const {summonerState, summonerDispatch} = this.props
         return(
             <Box>
-                <Navigation searchShow={"none"} />
+                <Navigation searchShow={false} />
                 <Container>
                     <Logo logoType={"Home"} color={"white"} />
                     <SubTitle color={"white"}>15분에 서렌합시다.</SubTitle>

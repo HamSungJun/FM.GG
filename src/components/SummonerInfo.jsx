@@ -8,7 +8,7 @@ class SummonerInfo extends React.Component{
     render(){
         return(
             <div>
-                <Navigation />
+                <Navigation searchShow={true} />
                 소환사 검색결과
             </div>
         )

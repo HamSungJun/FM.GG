@@ -14,6 +14,7 @@ class Logo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            colorMoverId : null,
             title_theme : []
         }
 
@@ -24,7 +25,15 @@ class Logo extends React.Component{
 
     componentDidMount(){
 
-       return setInterval(this.startTitleColoring,500);
+       return this.setState({
+           colorMoverId : setInterval(this.startTitleColoring,500)
+       })
+
+    }
+
+    componentWillUnmount(){
+
+        return clearInterval(this.state.colorMoverId);
 
     }
 

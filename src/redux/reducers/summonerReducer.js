@@ -22,6 +22,7 @@ const summonerReducer = (state = summonerInitialState, action) => {
 
         case summonerAction.FETCH_SUMMONER_FULFILLED :
             return Object.assign({},state,{
+                summonerName : "",
                 summonerInfo : action.payload
             });
         

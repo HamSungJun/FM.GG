@@ -6,10 +6,10 @@ const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 module.exports = {
     entry: "./src/components/Root.jsx",
     output: {
-        filename: "bundle.[contenthash].js",
+        filename: "bundle.[hash].js",
         path: path.resolve(__dirname + "/build")
     },
-    mode: "production",
+    mode: "development",
     module: {
         rules:[
             {
@@ -36,29 +36,16 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
+                test: /\.(jpg|jpeg|gif|png|svg|ico|woff|woff2|eot|ttf|otf)?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "url-loader",
+                    loader: "file-loader",
                     options: {
-                        limit: 10000,
-                        name: "images/[name].[ext]",
-                        fallback: "file-loader",
+                        name: './Assets/[name].[ext]'
                     }
                 }
             },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "url-loader",
-                    options: {
-                        name: "fonts/[name].[ext]",
-                        limit: 10000,
-                        fallback: "file-loader"
-                    }
-                }
-            }
+
         ]
     },
     plugins: [
@@ -69,11 +56,12 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './style/style.css'
         }),
-        new CleanWebpackPlugin()
+        // new CleanWebpackPlugin()
     ],
     devServer: {
         contentBase: path.resolve("./build"),
+        historyApiFallback : true,
         index: "index.html",
-        port: 9000
+        port: 8000
     }
 };

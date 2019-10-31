@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import Styled, { keyframes, css } from "styled-components";
 import {device} from './device.js'
 
 export const Box = Styled.div`
@@ -99,7 +99,7 @@ export const Navbar = Styled.div`
     width: 100vw;
     height: 40px;
     position: fixed;
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-columns: repeat(2, auto) 1fr repeat(${props => props.searchShow ? 2 : 1 }, auto);
     // border-bottom: 1px solid hsl(0, 0%, 20%);
     box-shadow: 0px 1px 3px hsl(200, 19%, 18%);
     background-color: hsl(203, 67%, 12%);
@@ -117,6 +117,13 @@ export const NavbarItem = Styled.div`
     position: relative;
 `
 
+export const NavbarGridItem = Styled.div`
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 0 10px;
+    column-gap: 10px;
+`
+
 export const NavText = Styled.span`
     font-size: 25px;
     margin-top: 4px;
@@ -130,7 +137,7 @@ export const NavText = Styled.span`
 export const NavSearch = Styled.input`
     position: relative;
     background-color: hsl(219, 33%, 21%);
-    display: ${props => props.searchShow || "block"};
+    display: block;
     outline: none;
     border: none;
     border-radius: 2px;
@@ -142,5 +149,48 @@ export const NavSearch = Styled.input`
     }
     &:focus::placeholder{
         color: white;
+    }
+`
+
+export const NavStatusIcon = Styled.div`
+    font-size: 18px;
+    color: ${props => {
+        switch(props.status){
+            case "online":
+                return css`hsl(131, 58%, 64%)`
+            default:
+                return css`white`
+        }
+    }};
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    & svg{
+        ${props => {
+            if(props.isFetching) {
+              return css`animation: ${props => props.counterSpin ? counterSpin : spin} ${1500}ms linear infinite`
+            }
+        }}
+    }
+   
+`
+
+const spin = keyframes`
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+`
+
+const counterSpin = keyframes`
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0deg);
     }
 `
