@@ -49,6 +49,18 @@
 - 금주의 무료 챔피언 - `freeChampionIds`
 - 뉴비를 위한 무료 챔피언 - `freeChampionIdsForNewPlayers`
 
+### `LEAGUE-V4`
+
+> https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={api_key}
+
+- 게임 종류 - `queueType`
+- 소환사이름 - `summonerName`
+- 승리 - `wins`
+- 패배 - `losses`
+- 티어 - `tier`
+- 랭크 - `rank`
+- 리그 점수 - `leaguePoints`
+
 ### 
 
 ## 개발 이미지

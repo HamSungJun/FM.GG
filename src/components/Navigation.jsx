@@ -21,7 +21,7 @@ class Navigation extends React.Component{
     componentDidMount(){
         this.props.lolStatusDispatch.fetchLolStatus();
         return this.setState({
-            statusFetcherId : setInterval(this.props.lolStatusDispatch.fetchLolStatus,20000)
+            statusFetcherId : setInterval(this.props.lolStatusDispatch.fetchLolStatus,5*60*1000)
         });
     }
 

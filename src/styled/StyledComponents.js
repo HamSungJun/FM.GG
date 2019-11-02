@@ -4,7 +4,6 @@ import {device} from './device.js'
 export const Box = Styled.div`
     width: 100vw;
     height: 100vh;
-    justify-content: center;
     background-color: hsl(221, 76%, 62%);
 `;
 
@@ -194,3 +193,81 @@ const counterSpin = keyframes`
         transform: rotate(0deg);
     }
 `
+
+export const SI_Layer_1 = Styled.div`
+    display: grid;
+    padding-left: 97px;
+    padding-right: 97px;
+    padding-top: 70px;
+    margin: 0 auto;
+    grid-template-columns: 360px 1fr;
+    column-gap: 30px;
+`
+
+export const SI_Layer_2 = Styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    
+`
+
+export const SI_Layer_2__Left = Styled(SI_Layer_2)`
+    grid-template-rows: repeat(4,auto);
+`
+
+export const SI_Layer_2__Right = Styled(SI_Layer_2)`
+    grid-template-rows: repeat(2,auto);
+`
+
+export const QC_Box = Styled.div`
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    background-color: white;
+    overflow: hidden;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    box-shadow : 0 2px 2px hsla(203, 67%, 12%, 0.5);
+`
+
+export const QC_Types = Styled.div`
+    width: 100%;
+    height: 40px;
+    display: grid;
+    grid-template-columns: 40px repeat(3,1fr);
+    border-bottom: 1px solid #ccc;
+`
+
+export const QC_Type = Styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${props => props.selected ? "hsla(203, 67%, 12%, 0.5)" : "white"};
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer
+    transition: background-color 0.4s ease;
+    transition: color 0.4s ease;
+    &:not(:last-child){
+        border-right: 1px solid #ccc;
+    }
+    &:hover{
+        background-color: hsl(203, 67%, 12%);
+        color: white;
+    }
+`
+
+export const QC_Refresh = Styled(QC_Type)`
+    border-top-left-radius : 2px;
+    border-bottom : none;
+    background : ${props => props.bg ? props.bg : "white"};
+    color: white;
+    & > .refreshIcon{
+        transform: rotate(62deg);
+        font-size: 35px;
+        color: white;
+        transition: font-size 1s linear;
+        cursor: pointer;
+    }
+
+`
+

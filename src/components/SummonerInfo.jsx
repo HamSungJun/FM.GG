@@ -1,5 +1,8 @@
 import React from 'react';
 import Navigation from './Navigation.jsx';
+import {Box, SI_Layer_1, SI_Layer_2__Left, SI_Layer_2__Right} from '../styled/StyledComponents';
+import QueueChanger from './QueueChanger.jsx';
+
 
 class SummonerInfo extends React.Component{
     constructor(props){
@@ -7,10 +10,17 @@ class SummonerInfo extends React.Component{
     }
     render(){
         return(
-            <div>
+            <Box>
                 <Navigation searchShow={true} />
-                소환사 검색결과
-            </div>
+                <SI_Layer_1>
+                    <SI_Layer_2__Left>
+                        <QueueChanger />
+                    </SI_Layer_2__Left>
+                    <SI_Layer_2__Right>
+
+                    </SI_Layer_2__Right>
+                </SI_Layer_1>
+            </Box>
         )
     }
 }
