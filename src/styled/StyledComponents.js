@@ -1,6 +1,12 @@
 import Styled, { keyframes, css } from "styled-components";
 import {device} from './device.js'
 
+export const flexCenteredBox = Styled.div`
+    display: flex;
+    align-items: center;
+    justify-content : center;
+`
+
 export const Box = Styled.div`
     width: 100vw;
     height: 100vh;
@@ -233,8 +239,50 @@ export const QC_Types = Styled.div`
     width: 100%;
     height: 40px;
     display: grid;
-    grid-template-columns: 40px repeat(3,1fr);
+    grid-template-columns: 40px 1fr;
     border-bottom: 1px solid #ccc;
+`
+
+export const QC_DropDown = Styled.div`
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    height: 100%;
+    position: relative;
+`
+
+export const QC_DropDownListBox = Styled.div`
+    position: absolute;
+    background-color: rgba(240,240,240,.7);
+    overflow: hidden;
+    top: 41px;
+    width: 100%;
+    height: auto;
+    transition: all 0.6s ease;
+    max-height: ${props => (props.show ? "300px" : "0")};
+    color: ${props => props.show ? "hsl(203, 67%, 12%)" : "transparent"};
+    border-bottom-left-radius : 4px;
+    border-bottom-right-radius : 4px;
+
+`
+
+export const QC_DropDownList = Styled(flexCenteredBox)`
+    height: 40px;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-weight: bold;
+    &:hover{
+        background-color: rgba(220,220,220,.7);
+    }
+    font-size: 15px;
+`
+export const QC_DropDownSelected = Styled(QC_DropDownList)`
+    font-weight: bold;
+    color: hsl(203, 67%, 12%);
+    border-right: 1px solid #ccc;
+`
+
+export const QC_DropDownIconBox = Styled(flexCenteredBox)`
+    cursor: pointer;
 `
 
 export const QC_Type = Styled.div`

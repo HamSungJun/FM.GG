@@ -2,6 +2,7 @@ import * as leagueAction from '../actions/leagueAction.js'
 
 const leagueInitialState = {
     leagueData : [],
+    selectedQueueType : "",
     isFetching : false,
     errorCode : undefined
 }
@@ -19,7 +20,8 @@ const leagueReducer = (state = leagueInitialState, action) => {
         case leagueAction.FETCH_LEAGUE_FULFILLED :
             return Object.assign({},state,{
                 isFetching : false,
-                leagueData : action.payload
+                leagueData : action.league,
+                selectedQueueType : action.league.length > 0 ? action.league[0].queueType : "",
             });
         
         case leagueAction.FETCH_LEAGUE_REJECTED :
@@ -27,6 +29,11 @@ const leagueReducer = (state = leagueInitialState, action) => {
                 isFetching : false,
                 errorCode : action.errorCode
             });
+        
+        case leagueAction.QUEUE_TYPE_CHANGE :
+            return Object.assign({},state,{
+                selectedQueueType : state.leagueData.filter(queueData => queueData.queueType === action.queueType) || ""
+            })
 
         default:
             return state;
