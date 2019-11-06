@@ -3,7 +3,7 @@ import Navigation from './Navigation.jsx';
 import {Box, SI_Layer_1, SI_Layer_2__Left, SI_Layer_2__Right} from '../styled/StyledComponents';
 import QueueChanger from './QueueChanger.jsx';
 import {connect} from 'react-redux';
-import {fetchSummoner} from '../redux/actions/summonerAction'
+import {fetchSummoner} from '../redux/actions/summonerAction';
 
 class SummonerInfo extends React.Component{
 

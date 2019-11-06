@@ -59,7 +59,7 @@ module.exports = {
         // new CleanWebpackPlugin()
     ],
     devServer: {
-        contentBase: path.resolve("./build"),
+        contentBase: path.resolve(__dirname),
         historyApiFallback : true,
         index: "index.html",
         port: 8000

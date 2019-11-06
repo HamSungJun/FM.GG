@@ -1,7 +1,7 @@
 import Styled, { keyframes, css } from "styled-components";
 import {device} from './device.js'
 
-export const flexCenteredBox = Styled.div`
+export const FlexCenteredBox = Styled.div`
     display: flex;
     align-items: center;
     justify-content : center;
@@ -265,7 +265,7 @@ export const QC_DropDownListBox = Styled.div`
 
 `
 
-export const QC_DropDownList = Styled(flexCenteredBox)`
+export const QC_DropDownList = Styled(FlexCenteredBox)`
     height: 40px;
     justify-content: flex-start;
     padding-left: 10px;
@@ -281,7 +281,7 @@ export const QC_DropDownSelected = Styled(QC_DropDownList)`
     border-right: 1px solid #ccc;
 `
 
-export const QC_DropDownIconBox = Styled(flexCenteredBox)`
+export const QC_DropDownIconBox = Styled(FlexCenteredBox)`
     cursor: pointer;
 `
 
@@ -317,5 +317,14 @@ export const QC_Refresh = Styled(QC_Type)`
         cursor: pointer;
     }
 
+`
+
+export const GridBox = Styled.div`
+    display: grid;
+`
+
+export const LeagueScoreBox = Styled(GridBox)`
+    grid-template-columns : repeat(2, 1fr);
+    height : 120px;
 `
 

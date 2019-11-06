@@ -4,6 +4,7 @@ import {MdArrowDropDown} from 'react-icons/md';
 import {QC_Box, QC_Types, QC_Refresh, QC_DropDown, QC_DropDownIconBox, QC_DropDownListBox, QC_DropDownList, QC_DropDownSelected} from '../styled/StyledComponents';
 import {connect} from 'react-redux';
 import * as leagueAction from '../redux/actions/leagueAction';
+import LeagueScore from './LeagueScore.jsx';
 
 class QueueChanger extends React.Component{
 
@@ -65,7 +66,7 @@ class QueueChanger extends React.Component{
                     </QC_Refresh>
                     {this.renderQcTypeDropDown()}
                 </QC_Types>
-
+                <LeagueScore />
             </QC_Box>
         )
     }
