@@ -61,10 +61,22 @@
 - 랭크 - `rank`
 - 리그 점수 - `leaguePoints`
 
-### 
-
 ## 개발 이미지
 
-| FMGG HOME |
+| HOME (개발완료) |
 |:--------:|
-|![FMGG_HOME](./gif/FMGG_HOME.gif)|
+|![FMGG_HOME](./DevImages/FMGG_HOME.gif)|
+
+| SUMMONER LEAGUE (개발중) |
+|:--------:|
+|![SUMMONER_LEAGUE](./DevImages/FMGG_SUMMONER_LEAGUE.png)|
+
+## 개발 히스토리
+
+- 2019-11-07
+  
+  - URL 파라미터를 통한 접근도 가능하도록 설정
+  
+  - 승률 게이지는 양쪽에서 팽창하는 애니메이션 적용
+    > Styled-Components를 통해서 작업을 하는데 드롭다운 리스트 변경을 함에도 불구하고 애니메이션이 새롭게 재적용 되지 않는 문제가 있었다. 컴포넌트에 `Key` 속성을 할당하면서 애니메이션이 재 적용되었음.
+  - 상단 드롭다운을 통해 진행한 게임종류에 따른 리그정보 확인가능
