@@ -23,12 +23,14 @@ const summonerReducer = (state = summonerInitialState, action) => {
         case summonerAction.FETCH_SUMMONER_FULFILLED :
             return Object.assign({},state,{
                 summonerName : "",
-                summonerInfo : action.payload
+                summonerInfo : action.payload,
+                isFetching : false
             });
         
         case summonerAction.FETCH_SUMMONER_REJECTED :
             return Object.assign({},state,{
-                errorCode : action.errorCode
+                errorCode : action.errorCode,
+                isFetching: false
             });
 
         default:

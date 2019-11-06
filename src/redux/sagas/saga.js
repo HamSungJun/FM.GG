@@ -17,14 +17,17 @@ export function* fetchSummoner() {
     
     if(summoner.status === 200){
         yield put(summonerAction.fetchSummonerFulfilled(summoner.data));
-        yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
     }
+
+    yield put(leagueAction.fetchLeague());
 
     const {league} = yield call(apiCall.fetchLeagueApi, summoner.data.id);
 
     if(league.status === 200){
         yield put(leagueAction.fetchLeagueFulfilled(league.data));
     }
+
+    yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
 }
 
 export function* watchFetchSummoner() {

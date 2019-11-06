@@ -32,7 +32,7 @@ const leagueReducer = (state = leagueInitialState, action) => {
         
         case leagueAction.QUEUE_TYPE_CHANGE :
             return Object.assign({},state,{
-                selectedQueueType : state.leagueData.filter(queueData => queueData.queueType === action.queueType) || ""
+                selectedQueueType : action.queueType
             })
 
         default:

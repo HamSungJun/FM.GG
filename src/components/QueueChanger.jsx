@@ -1,10 +1,11 @@
 import React from 'react';
 import {TiRefresh} from 'react-icons/ti';
 import {MdArrowDropDown} from 'react-icons/md';
-import {QC_Box, QC_Types, QC_Refresh, QC_DropDown, QC_DropDownIconBox, QC_DropDownListBox, QC_DropDownList, QC_DropDownSelected} from '../styled/StyledComponents';
+import {QC_Box, QC_Types, QC_Refresh, QC_DropDown, QC_DropDownIconBox, QC_DropDownListBox, QC_DropDownList, QC_DropDownSelected, FluidFlexBox} from '../styled/StyledComponents';
 import {connect} from 'react-redux';
 import * as leagueAction from '../redux/actions/leagueAction';
 import LeagueScore from './LeagueScore.jsx';
+import {BarLoader} from 'react-spinners'
 
 class QueueChanger extends React.Component{
 
@@ -16,7 +17,7 @@ class QueueChanger extends React.Component{
         }
 
         this.dropDownListOpen = this.dropDownListOpen.bind(this);
-
+        
     }
 
     renderQcTypeDropDown(){
@@ -40,7 +41,12 @@ class QueueChanger extends React.Component{
                 </QC_DropDownIconBox>
                 <QC_DropDownListBox show={this.state.dropDownShow}>
                     {leagueState.leagueData.filter(leagueInfo => leagueInfo.queueType !== leagueState.selectedQueueType).map((leagueInfo, index) => (
-                        <QC_DropDownList key={index}>
+                        <QC_DropDownList onClick={()=>{
+                            leagueDispatch.queueTypeChange(leagueInfo.queueType);
+                            return this.setState({
+                                dropDownShow : !this.state.dropDownShow
+                            })
+                        }} key={index}>
                             {leagueInfo.queueType}
                         </QC_DropDownList>
                     ))}
@@ -57,16 +63,32 @@ class QueueChanger extends React.Component{
         })
     }
 
+
     render(){
+        const {summonerState, leagueState, leagueDispatch} = this.props;
         return(
             <QC_Box>
-                <QC_Types>
-                    <QC_Refresh bg="hsl(203, 67%, 12%)">
-                        <TiRefresh color={"white"} className="refreshIcon" />
-                    </QC_Refresh>
-                    {this.renderQcTypeDropDown()}
-                </QC_Types>
-                <LeagueScore />
+                {
+                    leagueState.isFetching ? 
+                    (
+                        <FluidFlexBox>
+                            <BarLoader />
+                        </FluidFlexBox>
+                    )
+                    :
+                    (
+                    <div>
+                        <QC_Types>
+                            <QC_Refresh bg="hsl(203, 67%, 12%)">
+                                <TiRefresh color={"white"} className="refreshIcon" />
+                            </QC_Refresh>
+                            {this.renderQcTypeDropDown()}
+                        </QC_Types>
+                        <LeagueScore />
+                    </div>
+                    )
+                }
+                
             </QC_Box>
         )
     }
@@ -74,6 +96,7 @@ class QueueChanger extends React.Component{
 
 const mapStateToProps = state => {
     return {
+        summonerState : state.summoner,
         leagueState : state.league
     }
 }

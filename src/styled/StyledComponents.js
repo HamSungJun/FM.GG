@@ -7,6 +7,18 @@ export const FlexCenteredBox = Styled.div`
     justify-content : center;
 `
 
+export const FlexBox = Styled.div`
+    display: flex;
+    flex-direction: ${props => props.direction || "row"};
+    align-items: ${props => props.align || "center"};
+    justify-content : ${props => props.justify || "center"};
+`
+
+export const FluidFlexBox = Styled(FlexBox)`
+    height: 100%;
+    width: 100%;
+`
+
 export const Box = Styled.div`
     width: 100vw;
     height: 100vh;
@@ -252,7 +264,7 @@ export const QC_DropDown = Styled.div`
 
 export const QC_DropDownListBox = Styled.div`
     position: absolute;
-    background-color: rgba(240,240,240,.7);
+    background-color: rgba(250,250,250,.9);
     overflow: hidden;
     top: 41px;
     width: 100%;
@@ -271,14 +283,19 @@ export const QC_DropDownList = Styled(FlexCenteredBox)`
     padding-left: 10px;
     font-weight: bold;
     &:hover{
-        background-color: rgba(220,220,220,.7);
+        background-color: rgba(240,240,240,.9);
     }
     font-size: 15px;
 `
-export const QC_DropDownSelected = Styled(QC_DropDownList)`
+export const QC_DropDownSelected = Styled(QC_DropDownList)`    
+    background-color : hsl(203,67%,12%);
+    color: white;
     font-weight: bold;
-    color: hsl(203, 67%, 12%);
+    // color: hsl(203, 67%, 12%);
     border-right: 1px solid #ccc;
+    &:hover{
+        background-color: hsl(203,67%,12%);
+    }
 `
 
 export const QC_DropDownIconBox = Styled(FlexCenteredBox)`
@@ -319,12 +336,107 @@ export const QC_Refresh = Styled(QC_Type)`
 
 `
 
+export const PaddedFlexBox = Styled(FlexBox)`
+    padding : ${props => props.value+"px;"}
+`
+
+export const PaddedFlexBox_No_Pr = Styled(PaddedFlexBox)`
+    padding-right : 0;
+`
+
 export const GridBox = Styled.div`
     display: grid;
 `
-
-export const LeagueScoreBox = Styled(GridBox)`
-    grid-template-columns : repeat(2, 1fr);
-    height : 120px;
+export const PaddedGridBox = Styled(GridBox)`
+    padding : ${props => props.value+"px;"}
+    width: 100%;
+    row-gap : ${props => props.rowGap+"px" || "0"};
 `
 
+export const LeagueScoreBox = Styled(GridBox)`
+    grid-template-columns : 145px 1fr;
+    height : auto;
+`
+
+export const LeagueImage = Styled.img`
+    width: 125px;
+    height: 125px;
+`
+
+export const BadgeContainer = Styled(GridBox)`
+    height: 40px;
+    grid-template-columns: repeat(2,1fr);
+    overflow: hidden;
+    column-gap: 6px;
+    
+`
+
+export const BadgeTag = Styled(FlexBox)`
+    background-color: hsl(203, 67%, 12%);
+    letter-spacing: 1.05px;
+    color: white;
+    box-shadow: 0 2px 2px black;
+    font-size: 14px;
+`
+
+export const BadgeValue = Styled(FlexBox)`
+    color: ${props => props.color || "black"};
+    font-weight: bold;
+    font-size: 13px;
+    background-color: rgb(245,245,245);
+    letter-spacing: 1.05px;
+`
+
+export const GaugedNameBar = Styled(GridBox)`
+    border-radius : 4px;
+    grid-template-rows : auto auto;
+    padding: 0 20px;
+    overflow: hidden;
+`
+
+export const GaugeBar = Styled(GridBox)`
+    grid-template-columns : ${props => props.winRate? props.winRate+"%" : "1fr"} ${props => props.looseRate? props.looseRate+"%" : "1fr"};
+    height: 6px;
+`
+
+export const GaugeBarItem = Styled.div`
+    width : 100%;
+    height : 100%;
+    position: relative;
+`
+
+export const Gauge = Styled.div`
+    position : absolute;
+    height : 100%;
+    width : 100%;
+    ${props => {
+        if(props.pos === "left") {
+            return css`left : 0`;
+        } else if (props.pos === "right") {
+            return css`right : 0`
+        }
+    }}
+    background-Color : ${props => props.color || "hsl(221, 76%, 62%)"};
+    animation: Rise ${1000}ms ease forwards;
+    @keyframes Rise {
+        0%{
+            width : 0%;
+        }
+        100%{
+            width : 100%;
+        }
+    }
+`
+
+export const NameBar = Styled(PaddedFlexBox)`
+    margin-top : 15px;
+
+    & span{
+        color: white;
+        border-radius : 2px;
+        background-color : hsl(203,67%,12%);
+        padding : 5px 10px;
+        box-shadow: 0 2px 2px black;
+        letter-spacing: 1.04px;
+    }
+`
