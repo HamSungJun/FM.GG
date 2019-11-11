@@ -2,8 +2,23 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const KEY = require('../../../key/key.js')
-const SETTER = require("../setter/setter");
-const fs = require("fs");
+const {Kayn, REGIONS} = require('kayn');
+const Kayn = Kayn(KEY)({
+    region : REGIONS.KOREA,
+    apiURLPrefix : 'https://%s.api.riotgames.com',
+    locale : 'ko_KR',
+    debugOptions : {
+        isEnabled : true,
+        showKey: true
+    },
+    requestOptions : {
+        shouldRetry: true,
+        numberOfRetriesBeforeAbort: 3,
+        delayBeforeRetry: 1000,
+        burst: false,
+        shouldExitOn403: false
+    },
+})
 
 const getMostPlayedChampion = (matchlist) => {
 
