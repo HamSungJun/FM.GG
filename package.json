@@ -32,6 +32,7 @@
     "history": "^4.10.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "kayn": "^0.10.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "react": "^16.10.2",

@@ -1,5 +1,6 @@
 import Styled, { keyframes, css } from "styled-components";
-import {device} from './device.js'
+import {device} from './device.js';
+
 
 export const FlexCenteredBox = Styled.div`
     display: flex;
@@ -21,7 +22,7 @@ export const FluidFlexBox = Styled(FlexBox)`
 
 export const Box = Styled.div`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: hsl(221, 76%, 62%);
 `;
 
@@ -225,7 +226,7 @@ export const SI_Layer_1 = Styled.div`
 export const SI_Layer_2 = Styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    
+    row-gap: 30px;
 `
 
 export const SI_Layer_2__Left = Styled(SI_Layer_2)`
@@ -439,4 +440,106 @@ export const NameBar = Styled(PaddedFlexBox)`
         box-shadow: 0 2px 2px black;
         letter-spacing: 1.04px;
     }
+`
+
+export const MP_Box = Styled(QC_Box)`
+    min-height : 600px;
+    max-height : 600px;
+    overflow : auto;
+    &::-webkit-scrollbar{
+        display : none;
+    }
+`
+
+export const MP_Item = Styled.div`
+    // border-bottom: 1px solid #ccc;
+    &:(:last-child){
+        border-botton: none;
+    }
+`
+
+export const MP_Game_Gauge_Box = Styled.div`
+    height : 20px;
+    display: grid;
+    background-color : rgba(250,250,250,0.7);
+    position: relative;
+    grid-template-columns : ${props => props.playRate? props.playRate+"% 1fr" : "1fr"}
+`
+
+export const MP_Game_Gauge_Bar = Styled.div`
+    height: 100%;
+    background-image: linear-gradient(to right, hsl(195, 100%, 36%), hsl(14, 73%, 62%));
+    border-top-right-radius : 4px;
+    border-bottom-right-radius : 4px;
+    animation: GaugeRise ${2000}ms ease forwards;
+    @keyframes GaugeRise {
+        0%{
+            width : 0%;
+        }
+        100%{
+            width : 100%;
+        }
+    }
+`
+
+export const MP_Game_Text = Styled(FlexBox)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-weight: bold;
+`
+
+export const MP_Content_Box = Styled(GridBox)`
+    height: auto;
+    position: relative;
+    grid-template-columns: 60px 1fr;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    column-gap: 15px;
+    & > .workingIcon{
+        position: absolute
+        right: 15px;
+        top: 15px;
+        font-size: 20px;
+        color: hsl(0, 0%, 26%);
+    }
+`
+
+export const MP_Content_Champion = Styled(FlexBox)`
+    overflow: hidden;
+    
+`
+
+export const MP_Content_Champion_Image = Styled.img`
+    width : 100%;
+    border-radius: 4px;
+`
+
+export const MP_Content_Info = Styled(FlexBox)`
+
+`
+
+export const MP_Champion_Name = Styled.p`
+    padding: 0px 6px;
+    color: white;
+    background: hsl(203,67%,12%);
+    border-radius: 4px;
+`
+
+export const MP_Champion_Title = Styled.p`
+    color: hsl(200, 19%, 18%);
+    font-style: italic;
+`
+
+export const MP_Champion_Tags = Styled.span`
+
+`
+export const MP_Control_Box = Styled.div`
+    display: grid;
+    height: 40px;
+    grid-template-columns : repeat(2,1fr);
 `

@@ -1,10 +1,9 @@
-
 import {put, takeEvery, all, select, call, delay} from 'redux-saga/effects';
-
 
 import * as summonerAction from '../actions/summonerAction';
 import * as lolStatusAction from '../actions/lolStatusAction';
 import * as leagueAction from '../actions/leagueAction';
+import * as mostPickAction from '../actions/mostPickAction';
 
 import * as apiCall from './api/api';
 import history from '../../history/history.js';
@@ -13,18 +12,27 @@ export function* fetchSummoner() {
     const storeState = yield select();
     const urlParams = new URLSearchParams(window.location.search);
 
+    yield put(leagueAction.fetchLeague());
+    yield put(mostPickAction.fetchMostPick());
+
     const {summoner} = yield call(apiCall.fetchSummonerApi, storeState.summoner.summonerName || urlParams.get("name"));
     
     if(summoner.status === 200){
         yield put(summonerAction.fetchSummonerFulfilled(summoner.data));
     }
 
-    yield put(leagueAction.fetchLeague());
-
-    const {league} = yield call(apiCall.fetchLeagueApi, summoner.data.id);
-
+    const [league,mostPick] = yield all([
+        apiCall.fetchLeagueApi(summoner.data.id),
+        apiCall.fetchMostPickApi(summoner.data.accountId)
+        ]);
+    console.log(league)
+    console.log(mostPick)
     if(league.status === 200){
         yield put(leagueAction.fetchLeagueFulfilled(league.data));
+    }
+
+    if(mostPick.status === 200){
+        yield put(mostPickAction.fetchMostPickFulfilled(mostPick.data));
     }
 
     yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);

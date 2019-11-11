@@ -61,6 +61,19 @@
 - 랭크 - `rank`
 - 리그 점수 - `leaguePoints`
 
+### `MATCH-V4`
+
+> https://kr.api.riotgames.com/lol/match/v4/matchlists/by-account/{encryptedAccountId}&api_key={api_key}
+
+- 라인 - `lane`
+- 게임아이디 - `gameId`
+- 챔피언 - `champion`
+- 플랫폼아이디 - `platformId`
+- 게임시각 - `timestamp`
+- 게임타입 - `queue`
+- 역할 - `role`
+- 시즌 - `season`
+
 ## 개발 이미지
 
 | HOME (개발완료) |
