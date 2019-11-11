@@ -1,3 +1,3 @@
 module.exports = {
-    MAX_LEN_MOST_CHAMPION_LIST : 3
+    MAX_LEN_MOST_CHAMPION_LIST : 10
 }

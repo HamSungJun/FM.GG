@@ -15,6 +15,12 @@ export function fetchLolStatusApi() {
 
 export function fetchLeagueApi(encryptedSummonerId) {
     return axios.get(`${SERVER_URL}/api/league?encryptedSummonerId=${encryptedSummonerId}`)
-    .then(league => ({league}))
-    .catch(error => ({error}))
+    .then(league => {return league})
+    .catch(error => (error))
+}
+
+export function fetchMostPickApi(encryptedAccountId) {
+    return axios.get(`${SERVER_URL}/api/match/getRecentSoloRankMostPick?encryptedAccountId=${encryptedAccountId}`)
+    .then(mostPick => {return mostPick})
+    .catch(error => (error))
 }
