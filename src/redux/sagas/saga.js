@@ -13,13 +13,13 @@ export function* fetchSummoner() {
     const storeState = yield select();
     const urlParams = new URLSearchParams(window.location.search);
 
+    yield put(leagueAction.fetchLeague());
+
     const {summoner} = yield call(apiCall.fetchSummonerApi, storeState.summoner.summonerName || urlParams.get("name"));
     
     if(summoner.status === 200){
         yield put(summonerAction.fetchSummonerFulfilled(summoner.data));
     }
-
-    yield put(leagueAction.fetchLeague());
 
     const {league} = yield call(apiCall.fetchLeagueApi, summoner.data.id);
 

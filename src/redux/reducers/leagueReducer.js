@@ -12,10 +12,9 @@ const leagueReducer = (state = leagueInitialState, action) => {
     switch(action.type){
       
         case leagueAction.FETCH_LEAGUE :
-            return Object.assign({},state,{
-                isFetching : true,
-                leagueData: []
-            })
+            return Object.assign({},leagueInitialState,{
+                isFetching : true
+            });
 
         case leagueAction.FETCH_LEAGUE_FULFILLED :
             return Object.assign({},state,{
