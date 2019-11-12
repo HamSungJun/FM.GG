@@ -25,8 +25,7 @@ export function* fetchSummoner() {
         apiCall.fetchLeagueApi(summoner.data.id),
         apiCall.fetchMostPickApi(summoner.data.accountId)
         ]);
-    console.log(league)
-    console.log(mostPick)
+
     if(league.status === 200){
         yield put(leagueAction.fetchLeagueFulfilled(league.data));
     }
@@ -38,14 +37,11 @@ export function* fetchSummoner() {
     yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
 }
 
-export function* watchFetchSummoner() {
-    yield takeEvery(summonerAction.FETCH_SUMMONER,fetchSummoner);
-}
+
 
 export function* fetchLolStatus() {
     const {status, error} = yield call(apiCall.fetchLolStatusApi);
     if(status){
-        console.log(status)
         yield delay(2000);
         yield put(lolStatusAction.fetchLolStatusFulfilled(status.data));
     } else {
@@ -53,13 +49,26 @@ export function* fetchLolStatus() {
     }
 }
 
+export function* fetchInGameData(action) {
+    console.log(action);
+}
+
+export function* watchFetchSummoner() {
+    yield takeEvery(summonerAction.FETCH_SUMMONER,fetchSummoner);
+}
+
 export function* watchFetchLolStatus() {
     yield takeEvery(lolStatusAction.FETCH_LOL_STATUS,fetchLolStatus);
+}
+
+export function* watchFetchInGameDataByChampionId() {
+    yield takeEvery(mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID, fetchInGameData);
 }
 
 export default function* rootSaga() {
     yield all([
         watchFetchSummoner(),
-        watchFetchLolStatus()
+        watchFetchLolStatus(),
+        watchFetchInGameDataByChampionId()
     ])
 }

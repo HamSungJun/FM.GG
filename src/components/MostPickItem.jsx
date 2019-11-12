@@ -1,8 +1,9 @@
 import React from 'react';
 import {MdToys} from 'react-icons/md';
 import * as mostPickAction from '../redux/actions/mostPickAction';
-import {MP_Item, MP_Game_Gauge_Box, MP_Game_Gauge_Bar, MP_Game_Text, MP_Content_Box, MP_Control_Box, MP_Content_Champion , MP_Content_Info, MP_Content_Champion_Image, MP_Champion_Title, MP_Champion_Name, MP_Champion_Tags} from '../styled/StyledComponents';
-import {DATA_DRAGON_CHAMPION_SQUARE_IMAGE_URL} from '../redux/globals/global.js'
+import {MP_Item, MP_Game_Gauge_Box, MP_Game_Gauge_Bar, MP_Game_Text, MP_Content_Box, MP_Control_Box, MP_Content_Champion , MP_Content_Info, MP_Content_Champion_Image, MP_Champion_Title, MP_Champion_Name, MP_Control_Button, MP_Control_State_Text} from '../styled/StyledComponents';
+import {DATA_DRAGON_CHAMPION_SQUARE_IMAGE_URL} from '../redux/globals/global.js';
+import {connect} from 'react-redux';
 
 class MostPickItem extends React.Component{
 
@@ -10,17 +11,44 @@ class MostPickItem extends React.Component{
         super(props);
     }
 
+    componentWillReceiveProps(nextProps){
+        
+    }
+
+    renderAnalysisStateText(props){
+        if(props.analyzedData === null && props.isAnalyzing === false){
+            return {
+                text : "Ready",
+                color : "rgb(189, 189, 189)"
+            }
+        } else if (props.analyzedData === null && props.isAnalyzing === true){
+            return {
+                text : "Pending",
+                color : "hsl(14, 73%, 62%)"
+            }
+        } else if(props.analyzedData && props.isAnalyzing === false) {
+            return {
+                text : "Success",
+                color : "rgb(105, 240, 174)"
+            }
+        }
+    }
+
     render(){
 
         const playRate = ((this.props.pickData.playCount / this.props.maxPlayCount) * 100).toFixed(2);
+        const controlState = this.renderAnalysisStateText(this.props.pickData);
+        console.log(this.props.pickData.key);
 
         return(
+
             <MP_Item>
+
                 <MP_Game_Gauge_Box playRate={playRate}>
                     <MP_Game_Gauge_Bar></MP_Game_Gauge_Bar>
                     <MP_Game_Text>{this.props.pickData.playCount} / 100</MP_Game_Text>
                 </MP_Game_Gauge_Box>
-                <MP_Content_Box>
+                <MP_Content_Box iconColor={controlState.color} isAnalyzing={this.props.pickData.isAnalyzing}>
                     <MP_Content_Champion align={"flex-start"}>
                         <MP_Content_Champion_Image src={DATA_DRAGON_CHAMPION_SQUARE_IMAGE_URL.concat(this.props.pickData.image.full)}></MP_Content_Champion_Image>
                     </MP_Content_Champion>
@@ -34,12 +62,32 @@ class MostPickItem extends React.Component{
                     </MP_Content_Info>
                     <MdToys className={"workingIcon"} />
                 </MP_Content_Box>
-                <MP_Control_Box></MP_Control_Box>
+                <MP_Control_Box>
+                    <MP_Control_Button>
+                        <span onClick={()=>{this.props.requestInGameData(this.props.pickData.key)}}>
+                            분석하기
+                        </span> 
+                    </MP_Control_Button>
+                    <MP_Control_State_Text color={controlState.color}>" {controlState.text} "</MP_Control_State_Text>
+                </MP_Control_Box>
                 
             </MP_Item>
+
         )
     }
 
 }
+ 
+const mapDispatchToProps = dispatch => {
+
+    return {
+        requestInGameData(championId){
+            dispatch(mostPickAction.fetchInGameDataByChampionId(championId))
+        }
+    }
+
+}
+
+MostPickItem = connect(null, mapDispatchToProps)(MostPickItem);
 
 export default MostPickItem;

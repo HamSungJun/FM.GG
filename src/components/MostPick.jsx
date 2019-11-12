@@ -15,8 +15,8 @@ class MostPick extends React.Component{
         const {mostPickState} = this.props;
         if(mostPickState.mostPick.length > 0){
             const maxPlayCount = mostPickState.mostPick[0].playCount;
-            return mostPickState.mostPick.map((pick, index) => {
-                return <MostPickItem key={index} maxPlayCount={maxPlayCount} pickData={pick} />
+            return mostPickState.mostPick.map((pick) => {
+                return <MostPickItem key={pick.key} maxPlayCount={maxPlayCount} pickData={pick} />
             })
         }
     }

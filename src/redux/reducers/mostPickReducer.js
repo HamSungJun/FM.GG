@@ -32,6 +32,16 @@ const mostPickReducer = (state = mostPickInitialState, action) => {
                 error : action.error
             })
 
+        case mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID:
+            return Object.assign({},state,{
+                mostPick : state.mostPick.map(pick => {
+                    if(pick.key === action.championId){
+                        pick.isAnalyzing = true
+                    }
+                    return pick;
+                })
+            })
+
         default :
             return state
 

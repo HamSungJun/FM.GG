@@ -446,13 +446,17 @@ export const MP_Box = Styled(QC_Box)`
     min-height : 600px;
     max-height : 600px;
     overflow : auto;
+    display: grid;
+    row-gap: 15px;
+    padding: 15px;
     &::-webkit-scrollbar{
         display : none;
     }
 `
 
 export const MP_Item = Styled.div`
-    // border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-bottom : 15px;
     &:(:last-child){
         border-botton: none;
     }
@@ -469,8 +473,7 @@ export const MP_Game_Gauge_Box = Styled.div`
 export const MP_Game_Gauge_Bar = Styled.div`
     height: 100%;
     background-image: linear-gradient(to right, hsl(195, 100%, 36%), hsl(14, 73%, 62%));
-    border-top-right-radius : 4px;
-    border-bottom-right-radius : 4px;
+    border-radius : 4px;
     animation: GaugeRise ${2000}ms ease forwards;
     @keyframes GaugeRise {
         0%{
@@ -496,17 +499,20 @@ export const MP_Content_Box = Styled(GridBox)`
     height: auto;
     position: relative;
     grid-template-columns: 60px 1fr;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px;
     column-gap: 15px;
     & > .workingIcon{
         position: absolute
         right: 15px;
         top: 15px;
         font-size: 20px;
-        color: hsl(0, 0%, 26%);
-    }
+        color: ${props => props.iconColor || "hsl(0, 0%, 26%)"};
+        ${props => {
+            if(props.isAnalyzing) {
+              return css`animation: ${spin} ${1500}ms ease-in-out infinite`
+            }
+        }}
+    }        
 `
 
 export const MP_Content_Champion = Styled(FlexBox)`
@@ -528,6 +534,7 @@ export const MP_Champion_Name = Styled.p`
     color: white;
     background: hsl(203,67%,12%);
     border-radius: 4px;
+    box-shadow: 0 2px 2px black;
 `
 
 export const MP_Champion_Title = Styled.p`
@@ -542,4 +549,19 @@ export const MP_Control_Box = Styled.div`
     display: grid;
     height: 40px;
     grid-template-columns : repeat(2,1fr);
+`
+
+export const MP_Control_Button = Styled(FlexBox)`
+    & span{
+        cursor : pointer;
+        padding: 0px 6px;
+        color: white;
+        background: hsl(203,67%,12%);
+        border-radius: 4px;
+        box-shadow: 0 2px 2px black;
+    }
+`
+
+export const MP_Control_State_Text = Styled(FlexBox)`
+    color : ${props => props.color || "#ccc"};
 `

@@ -87,7 +87,9 @@ router.get("/getRecentSoloRankMostPick", async (req, res) => {
         // console.log(recentMostPickInfo)
         recentMostPickInfo = recentMostPickInfo.map(championPlay => {
             return Object.assign({},getChampionInfoById(req.app.get("championInfo"),championPlay.championId),{
-                playCount : championPlay.playCount
+                playCount : championPlay.playCount,
+                isAnalyzing : false,
+                analyzedData : null
             })
         });
 
