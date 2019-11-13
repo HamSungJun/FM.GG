@@ -12,22 +12,26 @@ class MostPickItem extends React.Component{
     }
 
     renderAnalysisStateText(props){
+
+        if(props.isAnalyzing === true){
+            return {
+                text : "Pending",
+                color : "hsl(14, 73%, 62%)"
+            }
+        }
+
         if(props.analyzedData === null && props.isAnalyzing === false){
             return {
                 text : "Ready",
                 color : "rgb(189, 189, 189)"
             }
-        } else if (props.analyzedData === null && props.isAnalyzing === true){
-            return {
-                text : "Pending",
-                color : "hsl(14, 73%, 62%)"
-            }
         } else if(props.analyzedData && props.isAnalyzing === false) {
             return {
                 text : "Success",
-                color : "rgb(105, 240, 174)"
+                color : "hsl(122, 40%, 49%)"
             }
         }
+
     }
 
     render(){

@@ -48,7 +48,7 @@ class LeagueScore extends React.Component{
                             <GaugeBarItem>
                                 <Gauge 
                                     key={winRate}
-                                    color={"hsl(231, 99%, 66%)"}
+                                    color={"hsl(195, 74%, 39%)"}
                                     pos={"left"}
                                     rate={winRate}
                                 ></Gauge>
@@ -57,7 +57,7 @@ class LeagueScore extends React.Component{
                             <GaugeBarItem>
                                 <Gauge
                                     key={looseRate}
-                                    color={"hsl(0, 69%, 67%)"}
+                                    color={"hsl(14, 67%, 61%)"}
                                     pos={"right"}
                                     rate={looseRate}
                                 ></Gauge>

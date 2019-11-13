@@ -15,11 +15,13 @@ const kayn = Kayn(KEY)({
         shouldRetry: true,
         numberOfRetriesBeforeAbort: 3,
         delayBeforeRetry: 1000,
-        burst: false,
-        shouldExitOn403: false
+        burst: true,
+        shouldExitOn403: false,
     },
 })
 const SETTER = require('../setter/setter');
+
+
 
 const getMostPlayedChampion = (matchlist) => {
 
@@ -84,17 +86,24 @@ router.get("/getRecentSoloRankMostPick", async (req, res) => {
         })
         
         let recentMostPickInfo = getMostPlayedChampion(recent100Games.matches);
-        // console.log(recentMostPickInfo)
+
+        const matchList = await Promise.all(recentMostPickInfo.map(championPlay => {
+            return kayn.Matchlist.by.accountID(req.query.encryptedAccountId).query({
+                season : req.app.get("seasonInfo")[req.app.get("seasonInfo").length-1].id,
+                queue: [420],
+                champion: championPlay.championId
+            })
+        }))
+
         recentMostPickInfo = recentMostPickInfo.map(championPlay => {
             return Object.assign({},getChampionInfoById(req.app.get("championInfo"),championPlay.championId),{
                 playCount : championPlay.playCount,
                 isAnalyzing : false,
-                analyzedData : null
+                analyzedData : null,
+                matchList : matchList.find(list => list.matches[0].champion === parseInt(championPlay.championId))
             })
         });
 
-        // console.log(recentMostPickInfo);
-       
         return res.send(recentMostPickInfo).end();
 
     } catch (error) {
@@ -104,20 +113,18 @@ router.get("/getRecentSoloRankMostPick", async (req, res) => {
 
 })
 
-router.get("/getMostPickInGameData", async (req, res) => {
+router.post("/getMostPickInGameData", async (req, res) => {
+
+    console.log(req.body);
 
     try {
-
-        const inGameIds = await kayn.Matchlist.by.accountID(req.query.encryptedAccountId).query({
-            season : req.app.get("seasonInfo")[req.app.get("seasonInfo").length-1].id,
-            queue: [420],
-            champion: req.query.championId
-        });
-
-        const inGameData = await Promise.all(inGameIds.matches.map(game => {
-            return kayn.Match.get(game.gameId).query({});
+        const start = process.hrtime();
+        const inGameData = await Promise.all(req.body.matchId.map( gameId => {
+            return kayn.Match.get(gameId)
         }));
-        
+        const end = process.hrtime(start);
+        const duration = end[1] / 1000000;
+        console.log(`hrtime : ${duration} ms`);
         return res.send(inGameData).end();
 
     } catch (error) {

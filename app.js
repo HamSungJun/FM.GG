@@ -13,7 +13,7 @@ const matchApiRouter = require('./route/api/match/match');
 
 app.use(cors());
 app.use(express.static(__dirname+'/build'));
-
+app.use(express.json());
 app.use("/api/summoner", summonerApiRouter);
 app.use("/api/lolStatus", lolStatusApiRouter);
 app.use("/api/league", leagueApiRouter);

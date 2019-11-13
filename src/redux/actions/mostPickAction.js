@@ -2,9 +2,9 @@ export const FETCH_MOST_PICK = "FETCH_MOST_PICK";
 export const FETCH_MOST_PICK_FULFILLED = "FETCH_MOST_PICK_FULFILLED";
 export const FETCH_MOST_PICK_REJECTED = "FETCH_MOST_PICK_REJECTED";
 
-export const FETCH_INGAME_DATA_BY_CHAMPION_ID = "FETCH_INGAME_DATA_BY_CHAMPION_ID";
-export const FETCH_INGAME_DATA_BY_CHAMPION_ID_FULFILLED = "FETCH_INGAME_DATA_BY_CHAMPION_ID_FULFILLED";
-export const FETCH_INGAME_DATA_BY_CHAMPION_ID_REJECTED = "FETCH_INGAME_DATA_BY_CHAMPION_ID_REJECTED";
+export const FETCH_INGAME_DATA = "FETCH_INGAME_DATA";
+export const FETCH_INGAME_DATA_FULFILLED = "FETCH_INGAME_DATA_FULFILLED";
+export const FETCH_INGAME_DATA_REJECTED = "FETCH_INGAME_DATA_REJECTED";
 
 export const fetchMostPick = () => {
     return {
@@ -26,23 +26,25 @@ export const fetchMostPickRejected = error => {
     }
 }
 
-export const fetchInGameDataByChampionId = championId => {
+export const fetchInGameData = (championId) => {
     return {
-        type: FETCH_INGAME_DATA_BY_CHAMPION_ID,
+        type: FETCH_INGAME_DATA,
         championId
     }
 }
 
-export const fetchInGameDataByChampionIdFulfilled = inGameData => {
+export const fetchInGameDataFulfilled = (inGameData, championId) => {
     return {
-        type: FETCH_INGAME_DATA_BY_CHAMPION_ID,
-        inGameData
+        type: FETCH_INGAME_DATA_FULFILLED,
+        inGameData,
+        championId
     }
 }
 
-export const fetchInGameDataByChampionIdRejected = error => {
+export const fetchInGameDataRejected = (status,statusText) => {
     return {
-        type: FETCH_INGAME_DATA_BY_CHAMPION_ID,
-        error
+        type: FETCH_INGAME_DATA_REJECTED,
+        status,
+        statusText
     }
 }

@@ -51,15 +51,22 @@ export function* fetchLolStatus() {
 
 export function* fetchInGameData(action) {
     const storeState = yield select();
-    const inGameData = yield call(apiCall.fetchInGameDataApi, storeState.summoner.summonerInfo.accountId, action.championId);
+    const targetPick = storeState.mostPick.mostPickInfo.find(pickInfo => pickInfo.key === action.championId);
+    let response;
 
-    console.log(inGameData);
-
-    // if(inGameData.status === 200){
-    //     yield put(mostPickAction.fetchInGameDataByChampionIdFulfilled(inGameData.data));
-    // } else {
-    //     yield put(mostPickAction.fetchInGameDataByChampionIdRejected(inGameData.data));
-    // }
+    if(!Array.isArray(targetPick.analyzedData)){
+        response = yield call(apiCall.fetchInGameDataApi, action.championId, targetPick.matchList.matches.slice(0,20).map(match => match.gameId));
+    } else if(targetPick.analyzedData.length < targetPick.matchList.matches.length){
+        response = yield call(apiCall.fetchInGameDataApi, action.championId, targetPick.matchList.matches.slice(targetPick.analyzedData.length,targetPick.analyzedData.length + 20).map(match => match.gameId));
+    } else {
+        response = null;
+    }
+    
+    if(response.payload.status === 200){
+        yield put(mostPickAction.fetchInGameDataFulfilled(response.payload.data,response.championId));
+    } else {
+        yield put(mostPickAction.fetchInGameDataRejected(response.status, response.statusText));
+    }
 
 }
 
@@ -72,7 +79,7 @@ export function* watchFetchLolStatus() {
 }
 
 export function* watchFetchInGameDataByChampionId() {
-    yield takeLatest(mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID, fetchInGameData);
+    yield takeLatest(mostPickAction.FETCH_INGAME_DATA, fetchInGameData);
 }
 
 export default function* rootSaga() {
