@@ -108,11 +108,17 @@ router.get("/getMostPickInGameData", async (req, res) => {
 
     try {
 
-        const inGameData = await kayn.Matchlist.by.accountID(req.query.encryptedAccountId).query({
+        const inGameIds = await kayn.Matchlist.by.accountID(req.query.encryptedAccountId).query({
             season : req.app.get("seasonInfo")[req.app.get("seasonInfo").length-1].id,
             queue: [420],
             champion: req.query.championId
-        })
+        });
+
+        const inGameData = await Promise.all(inGameIds.matches.map(game => {
+            return kayn.Match.get(game.gameId).query({});
+        }));
+        
+        return res.send(inGameData).end();
 
     } catch (error) {
         console.log(error);

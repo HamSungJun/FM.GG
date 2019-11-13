@@ -11,10 +11,6 @@ class MostPickItem extends React.Component{
         super(props);
     }
 
-    componentWillReceiveProps(nextProps){
-        
-    }
-
     renderAnalysisStateText(props){
         if(props.analyzedData === null && props.isAnalyzing === false){
             return {
@@ -36,7 +32,7 @@ class MostPickItem extends React.Component{
 
     render(){
 
-        const playRate = ((this.props.pickData.playCount / this.props.maxPlayCount) * 100).toFixed(2);
+        const playRate = ((this.props.pickData.playCount / 100) * 100).toFixed(2);
         const controlState = this.renderAnalysisStateText(this.props.pickData);
         console.log(this.props.pickData.key);
 
@@ -44,9 +40,9 @@ class MostPickItem extends React.Component{
 
             <MP_Item>
 
-                <MP_Game_Gauge_Box playRate={playRate}>
+                <MP_Game_Gauge_Box title={`최근 픽률 : ${playRate}%`} playRate={playRate}>
                     <MP_Game_Gauge_Bar></MP_Game_Gauge_Bar>
-                    <MP_Game_Text>{this.props.pickData.playCount} / 100</MP_Game_Text>
+                    <MP_Game_Text>{this.props.pickData.playCount}%</MP_Game_Text>
                 </MP_Game_Gauge_Box>
                 <MP_Content_Box iconColor={controlState.color} isAnalyzing={this.props.pickData.isAnalyzing}>
                     <MP_Content_Champion align={"flex-start"}>
@@ -77,17 +73,5 @@ class MostPickItem extends React.Component{
     }
 
 }
- 
-const mapDispatchToProps = dispatch => {
-
-    return {
-        requestInGameData(championId){
-            dispatch(mostPickAction.fetchInGameDataByChampionId(championId))
-        }
-    }
-
-}
-
-MostPickItem = connect(null, mapDispatchToProps)(MostPickItem);
 
 export default MostPickItem;

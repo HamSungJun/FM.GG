@@ -1,4 +1,4 @@
-import {put, takeEvery, all, select, call, delay} from 'redux-saga/effects';
+import {put, takeEvery, takeLatest, all, select, call, delay} from 'redux-saga/effects';
 
 import * as summonerAction from '../actions/summonerAction';
 import * as lolStatusAction from '../actions/lolStatusAction';
@@ -50,7 +50,17 @@ export function* fetchLolStatus() {
 }
 
 export function* fetchInGameData(action) {
-    console.log(action);
+    const storeState = yield select();
+    const inGameData = yield call(apiCall.fetchInGameDataApi, storeState.summoner.summonerInfo.accountId, action.championId);
+
+    console.log(inGameData);
+
+    // if(inGameData.status === 200){
+    //     yield put(mostPickAction.fetchInGameDataByChampionIdFulfilled(inGameData.data));
+    // } else {
+    //     yield put(mostPickAction.fetchInGameDataByChampionIdRejected(inGameData.data));
+    // }
+
 }
 
 export function* watchFetchSummoner() {
@@ -62,7 +72,7 @@ export function* watchFetchLolStatus() {
 }
 
 export function* watchFetchInGameDataByChampionId() {
-    yield takeEvery(mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID, fetchInGameData);
+    yield takeLatest(mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID, fetchInGameData);
 }
 
 export default function* rootSaga() {

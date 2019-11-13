@@ -14,9 +14,8 @@ class MostPick extends React.Component{
     renderMostPickItems(){
         const {mostPickState} = this.props;
         if(mostPickState.mostPick.length > 0){
-            const maxPlayCount = mostPickState.mostPick[0].playCount;
             return mostPickState.mostPick.map((pick) => {
-                return <MostPickItem key={pick.key} maxPlayCount={maxPlayCount} pickData={pick} />
+                return <MostPickItem requestInGameData={this.props.requestInGameData} key={pick.key} pickData={pick} />
             })
         }
     }
@@ -53,10 +52,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        requestInGameData(championId){
+            dispatch(mostPickAction.fetchInGameDataByChampionId(championId))
+        }
     }
 }
 
-MostPick = connect(mapStateToProps,null)(MostPick);
+MostPick = connect(mapStateToProps,mapDispatchToProps)(MostPick);
 
 export default MostPick;

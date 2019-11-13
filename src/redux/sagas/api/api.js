@@ -24,3 +24,9 @@ export function fetchMostPickApi(encryptedAccountId) {
     .then(mostPick => {return mostPick})
     .catch(error => (error))
 }
+
+export function fetchInGameDataApi(encryptedAccountId, championId) {
+    return axios.get(`${SERVER_URL}/api/match/getMostPickInGameData?encryptedAccountId=${encryptedAccountId}&championId=${championId}`)
+    .then(inGameData => (inGameData))
+    .catch(error => (error))
+}

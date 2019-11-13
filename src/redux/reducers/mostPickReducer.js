@@ -42,6 +42,15 @@ const mostPickReducer = (state = mostPickInitialState, action) => {
                 })
             })
 
+        case mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID_FULFILLED:
+            return Object.assign({},state,{
+                
+            })
+            
+        case mostPickAction.FETCH_INGAME_DATA_BY_CHAMPION_ID_REJECTED:
+            return Object.assign({},state,{
+                    
+            })
         default :
             return state
 
