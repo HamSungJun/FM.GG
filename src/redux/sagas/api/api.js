@@ -26,12 +26,12 @@ export function fetchMostPickApi(encryptedAccountId) {
 }
 
 export function fetchInGameDataApi(championId, matchId) {
-    return axios.post(`${SERVER_URL}/api/match/getMostPickInGameData`,{
-        matchId
-    })
+
+    return axios({ method: 'POST', url: `${SERVER_URL}/api/match/getMostPickInGameData`, headers: {"Content-Type": "application/json"}, data: { matchId } })
     .then(inGameData => ({
         payload : inGameData,
         championId
     }))
     .catch(error => (error))
+    
 }

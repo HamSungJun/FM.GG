@@ -3,7 +3,9 @@ const router = express.Router();
 const axios = require('axios');
 const KEY = require('../../../key/key.js')
 const {Kayn, REGIONS} = require('kayn');
-const kayn = Kayn(KEY)({
+const SETTER = require('../setter/setter');
+const MongoMatch = require("../../mongo/match/match");
+const kayn = Kayn(KEY.API_KEY)({
     region : REGIONS.KOREA,
     apiURLPrefix : 'https://kr.api.riotgames.com',
     locale : 'ko_KR',
@@ -14,14 +16,11 @@ const kayn = Kayn(KEY)({
     requestOptions : {
         shouldRetry: true,
         numberOfRetriesBeforeAbort: 3,
-        delayBeforeRetry: 1000,
+        delayBeforeRetry: 3000,
         burst: true,
         shouldExitOn403: false,
     },
 })
-const SETTER = require('../setter/setter');
-
-
 
 const getMostPlayedChampion = (matchlist) => {
 
@@ -115,17 +114,51 @@ router.get("/getRecentSoloRankMostPick", async (req, res) => {
 
 router.post("/getMostPickInGameData", async (req, res) => {
 
-    console.log(req.body);
-
+    console.log(req.body.matchId);
+    let initialmatchIdLen = req.body.matchId.length;
+    // 1. 데이터 베이스에서 matchId 조회 -> 조회된 데이터 = A
+    // 2. 없는 matchId만 모아서 api call -> 결과 데이터 = B -> 데이터 베이스에 저장.
+    // 3. A와 B를 취합하여 응답.
     try {
-        const start = process.hrtime();
-        const inGameData = await Promise.all(req.body.matchId.map( gameId => {
-            return kayn.Match.get(gameId)
-        }));
-        const end = process.hrtime(start);
-        const duration = end[1] / 1000000;
-        console.log(`hrtime : ${duration} ms`);
-        return res.send(inGameData).end();
+ 
+        let payload;
+
+        const matchDB = new MongoMatch();
+        await matchDB.createConnection();
+        
+        payload = await Promise.all(req.body.matchId.map(_matchId => (matchDB.getMatchByMatchId2(_matchId))));
+        payload = payload.reduce((acc,curr) => {
+            if(curr.length > 0){
+                acc.push(curr[0]);
+            }
+            return acc;
+        },[]);
+                
+        matchDB.destroyConnection();
+
+        if(payload.length > 0){
+            req.body.matchId = req.body.matchId.filter(matchId => {
+                if(!payload.some(match => match.gameId === matchId)){
+                    return true;
+                }
+            });
+        }
+       
+        console.log(`DB hit : ${initialmatchIdLen - req.body.matchId.length}`);
+
+        if(req.body.matchId.length > 0){
+
+            const inGameData = await Promise.all(req.body.matchId.map( gameId => {
+                return kayn.Match.get(gameId)
+            }));
+
+            payload = payload.concat(inGameData);
+            await matchDB.createConnection();
+            await matchDB.insertMatch(inGameData);
+
+        } 
+
+        return res.send(payload).end();
 
     } catch (error) {
         console.log(error);

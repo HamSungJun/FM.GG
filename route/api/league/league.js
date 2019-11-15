@@ -5,7 +5,7 @@ const KEY = require('../../../key/key.js')
 
 router.get("/", (req, res) => {
 
-    axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${req.query.encryptedSummonerId}?api_key=${KEY}`)
+    axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${req.query.encryptedSummonerId}?api_key=${KEY.API_KEY}`)
     .then(response => {
         console.log(response.data);
         return res.send(response.data).end();
