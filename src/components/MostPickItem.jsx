@@ -34,15 +34,26 @@ class MostPickItem extends React.Component{
 
     }
 
+    renderButtonText(pickData){
+
+        if(!pickData.analyzedData){
+            return "분석하기"
+        } else if(Array.isArray(pickData.analyzedData) && pickData.analyzedData.length < pickData.matchList.matches.length){
+            return "추가분석"
+        } else if (Array.isArray(pickData.analyzedData) && pickData.analyzedData.length === pickData.matchList.matches.length){
+            return "분석완료"
+        }
+
+    }
+
     render(){
 
         const playRate = ((this.props.pickData.playCount / 100) * 100).toFixed(2);
         const controlState = this.renderAnalysisStateText(this.props.pickData);
-        console.log(this.props.pickData.key);
 
         return(
 
-            <MP_Item>
+            <MP_Item selectable={this.props.pickData.analyzedData ? true : false} onClick={()=>{this.props.selectPickHandler(this.props.pickData.key)}} shadow={this.props.shadow}>
 
                 <MP_Game_Gauge_Box title={`최근 픽률 : ${playRate}%`} playRate={playRate}>
                     <MP_Game_Gauge_Bar></MP_Game_Gauge_Bar>
@@ -64,8 +75,8 @@ class MostPickItem extends React.Component{
                 </MP_Content_Box>
                 <MP_Control_Box>
                     <MP_Control_Button>
-                        <span onClick={()=>{this.props.requestInGameData(this.props.pickData.key)}}>
-                            분석하기
+                        <span onClick={(event)=>{this.props.requestInGameData(event,this.props.pickData.key)}}>
+                            {this.renderButtonText(this.props.pickData)}
                         </span> 
                     </MP_Control_Button>
                     <MP_Control_State_Text color={controlState.color}>" {controlState.text} "</MP_Control_State_Text>

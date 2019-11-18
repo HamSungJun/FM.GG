@@ -218,6 +218,7 @@ export const SI_Layer_1 = Styled.div`
     padding-left: 97px;
     padding-right: 97px;
     padding-top: 70px;
+    padding-bottom: 30px;
     margin: 0 auto;
     grid-template-columns: 360px 1fr;
     column-gap: 30px;
@@ -226,15 +227,15 @@ export const SI_Layer_1 = Styled.div`
 export const SI_Layer_2 = Styled.div`
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows : auto auto;
     row-gap: 30px;
 `
 
 export const SI_Layer_2__Left = Styled(SI_Layer_2)`
-    grid-template-rows: repeat(4,auto);
 `
 
 export const SI_Layer_2__Right = Styled(SI_Layer_2)`
-    grid-template-rows: repeat(2,auto);
+    grid-template-rows: auto 1fr;
 `
 
 export const QC_Box = Styled.div`
@@ -261,6 +262,7 @@ export const QC_DropDown = Styled.div`
     grid-template-columns: 1fr 40px;
     height: 100%;
     position: relative;
+    border : ${props => props.borderShow ? "1px solid #ccc" : "none"};
 `
 
 export const QC_DropDownListBox = Styled.div`
@@ -284,18 +286,18 @@ export const QC_DropDownList = Styled(FlexCenteredBox)`
     padding-left: 10px;
     font-weight: bold;
     &:hover{
-        background-color: rgba(240,240,240,.9);
+        background-color: hsla(54, 100%, 89%, .5);
+        cursor: pointer;
     }
     font-size: 15px;
 `
 export const QC_DropDownSelected = Styled(QC_DropDownList)`    
-    background-color : hsl(203,67%,12%);
-    color: white;
+    background-color : ${props => props.bgColor || "hsl(203, 67%, 12%)"};
+    color: ${props => props.color || "white"};
     font-weight: bold;
     // color: hsl(203, 67%, 12%);
-    border-right: 1px solid #ccc;
     &:hover{
-        background-color: hsl(203,67%,12%);
+        background-color: ${props => props.bgColor || "hsl(203, 67%, 12%)"};
     }
 `
 
@@ -443,8 +445,7 @@ export const NameBar = Styled(PaddedFlexBox)`
 `
 
 export const MP_Box = Styled(QC_Box)`
-    min-height : 600px;
-    max-height : 600px;
+    height: calc(100vh - 430px);    
     overflow : auto;
     display: grid;
     row-gap: 15px;
@@ -457,6 +458,12 @@ export const MP_Box = Styled(QC_Box)`
 export const MP_Item = Styled.div`
     border-bottom: 1px solid #ccc;
     padding-bottom : 15px;
+    box-shadow: ${props => props.shadow ? "0 2px 4px #ccc" : "none"};
+    cursor : ${props => props.selectable ? "pointer" : "default"};
+    transition: box-shadow 300ms ease;
+    &:hover{
+        box-shadow: 0 2px 4px #ccc;
+    }
     &:(:last-child){
         border-botton: none;
     }
@@ -473,7 +480,7 @@ export const MP_Game_Gauge_Box = Styled.div`
 export const MP_Game_Gauge_Bar = Styled.div`
     height: 100%;
     background-image: linear-gradient(to right, hsl(195, 100%, 36%), hsl(14, 73%, 62%));
-    border-radius : 4px;
+    // border-radius : 4px;
     animation: GaugeRise ${2000}ms ease forwards;
     @keyframes GaugeRise {
         0%{
@@ -565,3 +572,62 @@ export const MP_Control_Button = Styled(FlexBox)`
 export const MP_Control_State_Text = Styled(FlexBox)`
     color : ${props => props.color || "#ccc"};
 `
+
+export const CS_Box = Styled(QC_Box)`
+    height: auto;
+    min-height : auto;
+    padding : 15px;
+    overflow: visible;
+`
+
+export const CS_Query_Filter = Styled(GridBox)`
+    grid-template-columns : 1fr 1fr;
+    column-gap : 15px;
+    height : 40px;
+`
+
+export const CS_Two_Column = Styled(GridBox)`
+    grid-template-columns : 1fr 1fr;
+    column-gap : 15px;
+`
+
+export const CS_Query_Select = Styled.select`
+    width : 100%;
+    height : 100%;
+
+    & option{
+        font-size : 14px;
+    }
+`
+
+export const CS_Radio_Grid = Styled(GridBox)`
+    grid-template-columns : 40px auto;
+    height : 100%;
+
+    &:last-child{
+        margin-left : 15px;
+    }
+`
+
+export const CS_Radio_Outer_Circle = Styled.div`
+    cursor : pointer;
+    width : 50%;
+    height : 50%;
+    border-radius : 50%;
+    border : 2px solid hsl(203, 67%, 12%);
+    display : flex;
+    align-items : center;
+    justify-content : center;
+`
+
+export const CS_Radio_Inner_Circle = Styled.div`
+    width : 80%;
+    height : 80%;
+    border-radius : 50%;
+    background-color : ${props => props.on ? "hsl(221, 76%, 62%);" : "transparent"};
+`
+export const CS_Value_Selector = Styled(GridBox)`
+    grid-template-columns : 1fr auto;
+    golumn-gap : 15px;
+`
+

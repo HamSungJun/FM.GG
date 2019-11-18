@@ -15,9 +15,28 @@ class MostPick extends React.Component{
         const {mostPickState} = this.props;
         if(mostPickState.mostPickInfo.length > 0){
             return mostPickState.mostPickInfo.map((pick) => {
-                return <MostPickItem requestInGameData={this.props.requestInGameData} key={pick.key} pickData={pick} />
+                return <MostPickItem 
+                    requestInGameData={this.props.requestInGameData}
+                    selectPickHandler={this.checkMostPickAnalyzed.bind(this)}
+                    key={pick.key} 
+                    pickData={pick} 
+                    shadow={mostPickState.analyzingKey === pick.key}
+                    />
             })
         }
+    }
+
+    checkMostPickAnalyzed(key){
+
+        const {mostPickState, selectMostPick} = this.props;
+        // console.log(`mostPickState : ${mostPickState}`);
+        const targetPick = mostPickState.mostPickInfo.find(pick => pick.key === key);
+        if(targetPick.analyzedData && targetPick.analyzedData.length > 0){
+            return selectMostPick(key);
+        } else {
+            return alert("해당 모스트 픽에 대한 분석을 먼저 진행해 주세요.");
+        }
+
     }
 
     render(){
@@ -52,8 +71,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        requestInGameData(championId){
+        requestInGameData(event, championId){
+            event.stopPropagation();
             dispatch(mostPickAction.fetchInGameData(championId))
+        },
+
+        selectMostPick(key){
+            dispatch(mostPickAction.mostPickItemSelected(key));
         }
     }
 }

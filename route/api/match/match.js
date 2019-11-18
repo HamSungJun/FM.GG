@@ -126,7 +126,7 @@ router.post("/getMostPickInGameData", async (req, res) => {
         const matchDB = new MongoMatch();
         await matchDB.createConnection();
         
-        payload = await Promise.all(req.body.matchId.map(_matchId => (matchDB.getMatchByMatchId2(_matchId))));
+        payload = await Promise.all(req.body.matchId.map(_matchId => (matchDB.getMatchByMatchId(_matchId))));
         payload = payload.reduce((acc,curr) => {
             if(curr.length > 0){
                 acc.push(curr[0]);
@@ -134,8 +134,6 @@ router.post("/getMostPickInGameData", async (req, res) => {
             return acc;
         },[]);
                 
-        matchDB.destroyConnection();
-
         if(payload.length > 0){
             req.body.matchId = req.body.matchId.filter(matchId => {
                 if(!payload.some(match => match.gameId === matchId)){

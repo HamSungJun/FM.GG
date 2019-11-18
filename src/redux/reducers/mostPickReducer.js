@@ -3,6 +3,7 @@ import * as mostPickAction from '../actions/mostPickAction.js'
 const mostPickInitialState = {
     mostPickInfo : [],
     matchLen : 100,
+    analyzingKey : null,
     isFetching : false,
     error : null
 }
@@ -69,6 +70,11 @@ const mostPickReducer = (state = mostPickInitialState, action) => {
                     status : action.status,
                     statusText : action.statusText
                 }
+            })
+        
+        case mostPickAction.MOST_PICK_ITEM_SELECTED:
+            return Object.assign({},state,{
+                analyzingKey : action.key
             })
 
         default :

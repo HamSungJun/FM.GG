@@ -59,7 +59,13 @@ export function* fetchInGameData(action) {
     } else if(targetPick.analyzedData.length < targetPick.matchList.matches.length){
         response = yield call(apiCall.fetchInGameDataApi, action.championId, targetPick.matchList.matches.slice(targetPick.analyzedData.length,targetPick.analyzedData.length + 20).map(match => match.gameId));
     } else {
-        response = null;
+        response = {
+            championId : action.championId,
+            payload : {
+                status : 200,
+                data : []
+            }
+        };
     }
     
     if(response.payload.status === 200){
