@@ -6,6 +6,7 @@ import summonerReducer from '../reducers/summonerReducer';
 import lolStatusReducer from '../reducers/lolStatusReducer';
 import leagueReducer from '../reducers/leagueReducer';
 import mostPickReducer from '../reducers/mostPickReducer';
+import chartReducer from '../reducers/chartReducer';
 
 import rootSaga from '../sagas/saga';
 
@@ -15,7 +16,8 @@ let appReducer = combineReducers({
     summoner : summonerReducer,
     lolStatus : lolStatusReducer,
     league : leagueReducer,
-    mostPick : mostPickReducer
+    mostPick : mostPickReducer,
+    chart : chartReducer
 });
 
 let store = createStore(appReducer,applyMiddleware(logger, sagaMiddleware));

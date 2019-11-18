@@ -85,7 +85,7 @@ export function* watchFetchLolStatus() {
 }
 
 export function* watchFetchInGameDataByChampionId() {
-    yield takeLatest(mostPickAction.FETCH_INGAME_DATA, fetchInGameData);
+    yield takeEvery(mostPickAction.FETCH_INGAME_DATA, fetchInGameData);
 }
 
 export default function* rootSaga() {

@@ -22,7 +22,9 @@ class Client{
         } catch (error) {
 
             console.log(error);
-            await this.client.close();
+            if(this.client){
+                await this.client.close();
+            }
             this.client = null;
             return await this.createConnection();
 

@@ -18,24 +18,17 @@ import {
 } from "../styled/StyledComponents";
 import {MdArrowDropDown} from 'react-icons/md';
 import {connect} from 'react-redux';
+import * as chartAction from '../redux/actions/chartAction.js';
 
 class ChartSelector extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-        durationDropDownShow : false,
-        laneDropDownShow : false,
-        durationSelected : "Duration",
-        laneSelected : "Lane",
-        statRadio : true,
-        timelineRadio : false,
+      durationDropDownShow : false,
+      laneDropDownShow : false,
     }
-
     this.dropDownListOpen = this.dropDownListOpen.bind(this);
-    this.handleDropDownListSelect = this.handleDropDownListSelect.bind(this);
-    this.handleRadioClick = this.handleRadioClick.bind(this);
-
   }
 
   dropDownListOpen(type){
@@ -51,39 +44,9 @@ class ChartSelector extends React.Component {
         }
   }
 
-  handleRadioClick(type){
-        switch(type){
-            case "stat" :
-                return this.setState({
-                    statRadio : true,
-                    timelineRadio : false
-                })
-            case "timeline" :
-                return this.setState({
-                    statRadio : false,
-                    timelineRadio : true
-                })
-        }
-  }
-
-  handleDropDownListSelect(type, value){
-
-    switch(type){
-      case "duration" :
-        return this.setState({
-          durationSelected : value
-        })
-      case "lane" :
-        return this.setState({
-          laneSelected : value
-        })
-    }
-
-  }
-
   renderDurationList(){
 
-    const {mostPickState} = this.props;
+    const {mostPickState, chartState} = this.props;
     const gameData = mostPickState.mostPickInfo.find(pick => pick.key === mostPickState.analyzingKey).analyzedData;
 
     let durationMin = (900 / 60); // 15M to Second
@@ -102,9 +65,12 @@ class ChartSelector extends React.Component {
     }
     
     return durationItems.map((durationItem, index) => {
-      if(durationItem !== this.state.durationSelected){
+      if(durationItem !== chartState.durationSelected){
         return (
-          <QC_DropDownList onClick={()=>{this.handleDropDownListSelect("duration",durationItem)}} key={index}>{durationItem}</QC_DropDownList>
+          <QC_DropDownList onClick={()=>{
+            this.props.dropDownListSelect("duration",durationItem)
+            this.dropDownListOpen("duration");
+          }} key={index}>{durationItem}</QC_DropDownList>
         )
       }
     })
@@ -113,7 +79,7 @@ class ChartSelector extends React.Component {
 
   renderLaneList(){
 
-    const {mostPickState} = this.props;
+    const {mostPickState, chartState} = this.props;
     const gameData = mostPickState.mostPickInfo.find(pick => pick.key === mostPickState.analyzingKey).analyzedData;
 
     let playedLanes = [];
@@ -125,9 +91,10 @@ class ChartSelector extends React.Component {
     })
 
     return playedLanes.map((lane, index) => {
-      if(lane !== this.state.laneSelected){
+      if(lane !== chartState.laneSelected){
         return (
-          <QC_DropDownList onClick={()=>{this.handleDropDownListSelect("lane",lane)}} key={index}>{lane}</QC_DropDownList>
+          <QC_DropDownList onClick={()=>{this.props.dropDownListSelect("lane",lane)
+        this.dropDownListOpen("lane")}} key={index}>{lane}</QC_DropDownList>
         )
       }
     })
@@ -135,7 +102,7 @@ class ChartSelector extends React.Component {
   }
 
   render() {
-      const {mostPickState} = this.props;
+      const {mostPickState, chartState} = this.props;
     return (
         <CS_Box>
           {
@@ -146,7 +113,7 @@ class ChartSelector extends React.Component {
                 <CS_Two_Column>
                   <QC_DropDown borderShow>
                     <QC_DropDownSelected color="hsl(221, 76%, 62%)" bgColor="white" onClick={()=>{this.dropDownListOpen("duration")}}>
-                      {this.state.durationSelected}
+                      {chartState.durationSelected}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("duration")}}>
                       <MdArrowDropDown size={25} />
@@ -157,7 +124,7 @@ class ChartSelector extends React.Component {
                   </QC_DropDown>
                   <QC_DropDown borderShow>
                     <QC_DropDownSelected color="hsl(221, 76%, 62%)" bgColor="white" onClick={()=>{this.dropDownListOpen("lane")}}>
-                      {this.state.laneSelected}
+                      {chartState.laneSelected}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("lane")}}>
                       <MdArrowDropDown size={25} />
@@ -171,9 +138,9 @@ class ChartSelector extends React.Component {
                   <CS_Radio_Grid>
                       <FlexBox>
                           <CS_Radio_Outer_Circle onClick={()=>{
-                              this.handleRadioClick("stat")
+                              this.props.radioValueChange("Stat")
                           }}>
-                              <CS_Radio_Inner_Circle on={this.state.statRadio}></CS_Radio_Inner_Circle>
+                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "Stat" ? true : false}></CS_Radio_Inner_Circle>
                           </CS_Radio_Outer_Circle>
                       </FlexBox>
                       <FlexBox>
@@ -183,9 +150,9 @@ class ChartSelector extends React.Component {
                   <CS_Radio_Grid>
                       <FlexBox>
                           <CS_Radio_Outer_Circle onClick={()=>{
-                              this.handleRadioClick("timeline")
+                              this.props.radioValueChange("Timeline")
                           }}>
-                              <CS_Radio_Inner_Circle on={this.state.timelineRadio}></CS_Radio_Inner_Circle>
+                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "Timeline" ? true : false}></CS_Radio_Inner_Circle>
                           </CS_Radio_Outer_Circle>
                       </FlexBox>
                       <FlexBox>
@@ -194,9 +161,6 @@ class ChartSelector extends React.Component {
                   </CS_Radio_Grid>
                 </FlexBox>
               </CS_Query_Filter>
-              <CS_Value_Selector>
-
-              </CS_Value_Selector>
               </div>
               )
               :
@@ -216,10 +180,32 @@ class ChartSelector extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        mostPickState : state.mostPick
+        mostPickState : state.mostPick,
+        chartState : state.chart
     }
 }
 
-ChartSelector = connect(mapStateToProps, null)(ChartSelector);
+const mapDispatchToProps = dispatch => {
+    return {
+      radioValueChange(type){
+        // Stat || Timeline
+        return dispatch(chartAction.radioValueChange(type));
+      },
+      dropDownListSelect(type, value){
+        switch(type){
+          case "duration" :
+            return dispatch(chartAction.durationValueChange(value));
+          case "lane" :
+            return dispatch(chartAction.laneValueChange(value));
+          default :
+            return;
+        }
+      }
+    }
+}
+
+
+
+ChartSelector = connect(mapStateToProps, mapDispatchToProps)(ChartSelector);
 
 export default ChartSelector;

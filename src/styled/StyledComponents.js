@@ -13,6 +13,7 @@ export const FlexBox = Styled.div`
     flex-direction: ${props => props.direction || "row"};
     align-items: ${props => props.align || "center"};
     justify-content : ${props => props.justify || "center"};
+    height : ${props => props.height || "auto"};
 `
 
 export const FluidFlexBox = Styled(FlexBox)`
@@ -277,6 +278,7 @@ export const QC_DropDownListBox = Styled.div`
     color: ${props => props.show ? "hsl(203, 67%, 12%)" : "transparent"};
     border-bottom-left-radius : 4px;
     border-bottom-right-radius : 4px;
+    z-index: 2;
 
 `
 
@@ -613,6 +615,7 @@ export const CS_Radio_Outer_Circle = Styled.div`
     cursor : pointer;
     width : 50%;
     height : 50%;
+    padding : 2px;
     border-radius : 50%;
     border : 2px solid hsl(203, 67%, 12%);
     display : flex;
@@ -621,13 +624,41 @@ export const CS_Radio_Outer_Circle = Styled.div`
 `
 
 export const CS_Radio_Inner_Circle = Styled.div`
-    width : 80%;
-    height : 80%;
+    width : 100%;
+    height : 100%;
     border-radius : 50%;
     background-color : ${props => props.on ? "hsl(221, 76%, 62%);" : "transparent"};
 `
-export const CS_Value_Selector = Styled(GridBox)`
-    grid-template-columns : 1fr auto;
-    golumn-gap : 15px;
+export const CD_Wrapper = Styled(QC_Box)`
+    grid-template-rows : auto 1fr;
+    display : grid;
+    position : relative;
+    padding : 15px;
+    row-gap : 15px;
 `
 
+export const CD_Chart_List = Styled(GridBox)`
+    grid-template-columns : 1fr auto;
+    column-gap : 15px;
+`
+
+export const CD_Visualize_Button = Styled(FlexBox)`
+    font-size: 15px;
+    width: 100px;
+    background: rgb(9, 35, 51);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 2px black;
+`
+
+export const CD_Chart_Container = Styled.div`
+    box-shadow: 0 2px 4px #ccc;
+`
+
+export const CD_Absolute_Hover = Styled.div`
+    position : absolute;
+    top : 0;
+    bottom : 0;
+    width : 100%;
+`

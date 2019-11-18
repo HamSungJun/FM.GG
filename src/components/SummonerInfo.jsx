@@ -5,7 +5,7 @@ import QueueChanger from './QueueChanger.jsx';
 import MostPick from './MostPick.jsx';
 import {connect} from 'react-redux';
 import {fetchSummoner} from '../redux/actions/summonerAction';
-import ChartMonitor from './ChartMonitor.jsx';
+import ChartDrawer from './ChartDrawer.jsx';
 import ChartSelector from './ChartSelector.jsx';
 
 class SummonerInfo extends React.Component{
@@ -34,7 +34,7 @@ class SummonerInfo extends React.Component{
                     </SI_Layer_2__Left>
                     <SI_Layer_2__Right>
                         <ChartSelector />
-                        <ChartMonitor />
+                        <ChartDrawer />
                     </SI_Layer_2__Right>
                 </SI_Layer_1>
             </Box>
