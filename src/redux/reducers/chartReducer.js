@@ -3,7 +3,8 @@ import * as chartAction from '../actions/chartAction.js';
 const chartInitialState = {
     durationSelected : "Duration",
     laneSelected : "Lane",
-    radioSelected : "Stat"
+    radioSelected : "Stat",
+    gameKeySelected : null
 };
 
 const chartReducer = (state = chartInitialState, action) => {
@@ -23,10 +24,17 @@ const chartReducer = (state = chartInitialState, action) => {
             return Object.assign({},state,{
                 radioSelected : action.radioValue
             })
+
+        case chartAction.SELECTED_GAME_KEY_CHANGE :
+            return Object.assign({},state,{
+                gameKeySelected : action.gameKey
+            })
         
         case chartAction.SELECTED_PICK_CHANGE :
             return chartInitialState;
-
+        
+        
+            
         default:
             return state;
     }
