@@ -24,6 +24,9 @@ const chartReducer = (state = chartInitialState, action) => {
                 radioSelected : action.radioValue
             })
         
+        case chartAction.SELECTED_PICK_CHANGE :
+            return chartInitialState;
+
         default:
             return state;
     }

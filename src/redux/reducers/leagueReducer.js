@@ -20,7 +20,7 @@ const leagueReducer = (state = leagueInitialState, action) => {
             return Object.assign({},state,{
                 isFetching : false,
                 leagueData : action.league,
-                selectedQueueType : action.league.length > 0 ? action.league[0].queueType : "",
+                selectedQueueType : setQueueType(action.league)
             });
         
         case leagueAction.FETCH_LEAGUE_REJECTED :
@@ -40,5 +40,18 @@ const leagueReducer = (state = leagueInitialState, action) => {
     }
 
 }
+ 
+const setQueueType = league => {
+    if(league.length > 0){
+        const soloQueueIndex = league.findIndex(item => item.queueType === "RANKED_SOLO_5x5");
+        if(soloQueueIndex !== -1){
+            return league[soloQueueIndex].queueType;
+        } else {
+            return league[0].queueType;
+        }
+    } else {
+        return null;
+    }
+} 
 
 export default leagueReducer;

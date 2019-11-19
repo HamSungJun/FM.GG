@@ -25,7 +25,7 @@ class ChartDrawer extends React.Component {
           <React.Fragment>
             <CD_Chart_List>
                 <QC_DropDown borderShow>
-                    <QC_DropDownSelected color="hsl(221, 76%, 62%)" bgColor="white">
+                    <QC_DropDownSelected color="rgb(9, 35, 51)" bgColor="white">
                       {"key"}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox>

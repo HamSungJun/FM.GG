@@ -112,7 +112,7 @@ class ChartSelector extends React.Component {
                 <CS_Query_Filter>
                 <CS_Two_Column>
                   <QC_DropDown borderShow>
-                    <QC_DropDownSelected color="hsl(221, 76%, 62%)" bgColor="white" onClick={()=>{this.dropDownListOpen("duration")}}>
+                    <QC_DropDownSelected color="rgb(9, 35, 51)" bgColor="white" onClick={()=>{this.dropDownListOpen("duration")}}>
                       {chartState.durationSelected}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("duration")}}>
@@ -123,7 +123,7 @@ class ChartSelector extends React.Component {
                     </QC_DropDownListBox>
                   </QC_DropDown>
                   <QC_DropDown borderShow>
-                    <QC_DropDownSelected color="hsl(221, 76%, 62%)" bgColor="white" onClick={()=>{this.dropDownListOpen("lane")}}>
+                    <QC_DropDownSelected color="rgb(9, 35, 51)" bgColor="white" onClick={()=>{this.dropDownListOpen("lane")}}>
                       {chartState.laneSelected}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("lane")}}>

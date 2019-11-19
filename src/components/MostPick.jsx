@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {BarLoader} from 'react-spinners'
 import * as mostPickAction from '../redux/actions/mostPickAction';
+import {selectedPickChange} from '../redux/actions/chartAction';
 import {MP_Box, FluidFlexBox} from '../styled/StyledComponents'
 import MostPickItem from './MostPickItem.jsx';
 
@@ -78,6 +79,7 @@ const mapDispatchToProps = dispatch => {
 
         selectMostPick(key){
             dispatch(mostPickAction.mostPickItemSelected(key));
+            dispatch(selectedPickChange());
         }
     }
 }
