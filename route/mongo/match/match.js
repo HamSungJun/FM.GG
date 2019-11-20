@@ -21,6 +21,8 @@ class MongoMatch extends Client{
             return await db.collection("match").find({gameId : _matchId}).toArray();
         } catch (error) {
             console.log(error);
+        } finally {
+            this.destroyConnection();
         }
     }
     
@@ -36,8 +38,10 @@ class MongoMatch extends Client{
             return await db.collection("match").insertMany(_match)
         } catch (error) {
             console.log(error);
-        } 
-        
+        } finally {
+            this.destroyConnection();
+        }
+
     }
 
 }
