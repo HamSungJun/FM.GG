@@ -22,7 +22,7 @@ class MongoMatch extends Client{
         } catch (error) {
             console.log(error);
         } finally {
-            this.destroyConnection();
+            await this.destroyConnection();
         }
     }
     
@@ -39,7 +39,7 @@ class MongoMatch extends Client{
         } catch (error) {
             console.log(error);
         } finally {
-            this.destroyConnection();
+            await this.destroyConnection();
         }
 
     }

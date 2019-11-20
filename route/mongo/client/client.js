@@ -12,8 +12,7 @@ class Client{
 
         try {
             
-            this.client = await new MongoClient(KEY.MONGO_CONN_URL.replace(/<password>/,KEY.MONGO_PASSWORD),{useNewUrlParser: true,
-            useUnifiedTopology: true}).connect();
+            this.client = await new MongoClient(KEY.MONGO_CONN_URL.replace(/<password>/,KEY.MONGO_PASSWORD),{useNewUrlParser: true, reconnectInterval: 500, autoReconnect: true, useUnifiedTopology: true}).connect();
             
             if(this.client && this.client.isConnected()){
                 return;
