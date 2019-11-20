@@ -123,10 +123,12 @@ router.post("/getMostPickInGameData", async (req, res) => {
  
         let payload;
 
-        const matchDB = new MongoMatch();
-        await matchDB.createConnection();
-        
-        payload = await Promise.all(req.body.matchId.map(_matchId => (matchDB.getMatchByMatchId(_matchId))));
+        payload = await Promise.all(req.body.matchId.map(async _matchId => {
+            let matchDB = new MongoMatch();
+            await matchDB.createConnection();
+            return await matchDB.getMatchByMatchId(_matchId);
+        }));
+
         payload = payload.reduce((acc,curr) => {
             if(curr.length > 0){
                 acc.push(curr[0]);

@@ -7,6 +7,7 @@ export const FETCH_INGAME_DATA_FULFILLED = "FETCH_INGAME_DATA_FULFILLED";
 export const FETCH_INGAME_DATA_REJECTED = "FETCH_INGAME_DATA_REJECTED";
 
 export const MOST_PICK_ITEM_SELECTED = "MOST_PICK_ITEM_SELECTED";
+export const MOST_PICK_ITEM_RELEASED = "MOST_PICK_ITEM_RELEASED";
 
 export const fetchMostPick = () => {
     return {
@@ -55,5 +56,11 @@ export const mostPickItemSelected = key => {
     return {
         type: MOST_PICK_ITEM_SELECTED,
         key
+    }
+}
+
+export const mostPickItemReleased = () => {
+    return {
+        type : MOST_PICK_ITEM_RELEASED
     }
 }

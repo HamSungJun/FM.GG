@@ -5,7 +5,6 @@ const chartInitialState = {
     laneSelected : null,
     radioSelected : "stats",
     gameKeySelected : null,
-
 };
 
 const chartReducer = (state = chartInitialState, action) => {

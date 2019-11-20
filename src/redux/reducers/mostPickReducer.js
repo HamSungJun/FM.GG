@@ -76,7 +76,11 @@ const mostPickReducer = (state = mostPickInitialState, action) => {
             return Object.assign({},state,{
                 analyzingKey : action.key
             })
-
+        
+        case mostPickAction.MOST_PICK_ITEM_RELEASED:
+            return Object.assign({},state,{
+                analyzingKey : null
+            })
         default :
             return state
 

@@ -30,7 +30,11 @@ class MostPick extends React.Component{
     checkMostPickAnalyzed(key){
 
         const {mostPickState, selectMostPick} = this.props;
-        // console.log(`mostPickState : ${mostPickState}`);
+
+        if(key === mostPickState.analyzingKey){
+            return this.props.releasePickSelection();
+        }
+
         const targetPick = mostPickState.mostPickInfo.find(pick => pick.key === key);
         if(targetPick.analyzedData && targetPick.analyzedData.length > 0){
             return selectMostPick(key);
@@ -80,6 +84,10 @@ const mapDispatchToProps = dispatch => {
         selectMostPick(key){
             dispatch(mostPickAction.mostPickItemSelected(key));
             dispatch(selectedPickChange());
+        },
+
+        releasePickSelection(){
+            dispatch(mostPickAction.mostPickItemReleased());
         }
     }
 }

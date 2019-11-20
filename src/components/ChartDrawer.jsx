@@ -23,32 +23,44 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
 class ChartDrawer extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {
       gameKeyDropDownShow : false,
-      chart : null
     }
     this.toggleDropDownShow = this.toggleDropDownShow.bind(this);
     this.drawChartByGameKey = this.drawChartByGameKey.bind(this);
     this.getTargetPickData = this.getTargetPickData.bind(this);
+    this.disposeChartIfExist = this.disposeChartIfExist.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps){
+
+    if(this.props.mostPickState.analyzingKey !== nextProps.mostPickState.analyzingKey){
+      this.disposeChartIfExist();
+    }
+
+    return true;
   }
 
   componentWillUnmount(){
-    if(this.chart){
-      this.chart.dispose();
-    }
+    this.disposeChartIfExist();
   }
   
+  disposeChartIfExist(){
+    if(this.chart){
+      return this.chart.dispose();
+    }
+  }
+
   drawChartByGameKey() {
     const {mostPickState, chartState} = this.props;
-    if([chartState.durationSeleted,chartState.laneSeleted,chartState.gameKeySelected].some(selectState => selectState === null)){
+    if([chartState.durationSelected,chartState.laneSelected,chartState.gameKeySelected].some(selectState => selectState === null)){
       return alert("게임 시간, 플레이 라인, 게임 키는 반드시 선택되어야 합니다.");
     }
     
-    if(this.chart){
-      this.chart.dispose();
-    }
+    this.disposeChartIfExist();
 
     const targetPickData = this.getTargetPickData();
     switch(chartState.gameKeySelected){
