@@ -269,7 +269,7 @@ export const QC_DropDown = Styled.div`
 export const QC_DropDownListBox = Styled.div`
     position: absolute;
     background-color: rgba(250,250,250,.9);
-    overflow: hidden;
+    overflow: auto;
     top: 41px;
     width: 100%;
     height: auto;
@@ -279,7 +279,9 @@ export const QC_DropDownListBox = Styled.div`
     border-bottom-left-radius : 4px;
     border-bottom-right-radius : 4px;
     z-index: 2;
-
+    &::-webkit-scrollbar{
+        display:none;
+    }
 `
 
 export const QC_DropDownList = Styled(FlexCenteredBox)`

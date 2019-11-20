@@ -2,6 +2,7 @@ export const DURATION_VALUE_CHANGE = "DURATION_VALUE_CHANGE";
 export const LANE_VALUE_CHANGE = "LANE_VALUE_CHANGE";
 export const RADIO_VALUE_CHANGE = "RADIO_VALUE_CHANGE";
 export const SELECTED_PICK_CHANGE = "SELECTED_PICK_CHANGE";
+export const SELECTED_GAME_KEY_CHANGE = "SELECTED_GAME_KEY_CHANGE";
 
 export const durationValueChange = duration => ({
     type : DURATION_VALUE_CHANGE,
@@ -20,4 +21,9 @@ export const radioValueChange = radioValue => ({
 
 export const selectedPickChange = () => ({
     type : SELECTED_PICK_CHANGE
+})
+
+export const selectedGameKeyChange = gameKey => ({
+    type : SELECTED_GAME_KEY_CHANGE,
+    gameKey
 })

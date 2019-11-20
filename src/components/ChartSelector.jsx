@@ -113,7 +113,7 @@ class ChartSelector extends React.Component {
                 <CS_Two_Column>
                   <QC_DropDown borderShow>
                     <QC_DropDownSelected color="rgb(9, 35, 51)" bgColor="white" onClick={()=>{this.dropDownListOpen("duration")}}>
-                      {chartState.durationSelected}
+                      {chartState.durationSelected || "Duration"}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("duration")}}>
                       <MdArrowDropDown size={25} />
@@ -124,7 +124,7 @@ class ChartSelector extends React.Component {
                   </QC_DropDown>
                   <QC_DropDown borderShow>
                     <QC_DropDownSelected color="rgb(9, 35, 51)" bgColor="white" onClick={()=>{this.dropDownListOpen("lane")}}>
-                      {chartState.laneSelected}
+                      {chartState.laneSelected || "Lane"}
                     </QC_DropDownSelected>
                     <QC_DropDownIconBox onClick={()=>{this.dropDownListOpen("lane")}}>
                       <MdArrowDropDown size={25} />
@@ -138,9 +138,9 @@ class ChartSelector extends React.Component {
                   <CS_Radio_Grid>
                       <FlexBox>
                           <CS_Radio_Outer_Circle onClick={()=>{
-                              this.props.radioValueChange("Stat")
+                              this.props.radioValueChange("stats")
                           }}>
-                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "Stat" ? true : false}></CS_Radio_Inner_Circle>
+                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "stats" ? true : false}></CS_Radio_Inner_Circle>
                           </CS_Radio_Outer_Circle>
                       </FlexBox>
                       <FlexBox>
@@ -150,9 +150,9 @@ class ChartSelector extends React.Component {
                   <CS_Radio_Grid>
                       <FlexBox>
                           <CS_Radio_Outer_Circle onClick={()=>{
-                              this.props.radioValueChange("Timeline")
+                              this.props.radioValueChange("timeline")
                           }}>
-                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "Timeline" ? true : false}></CS_Radio_Inner_Circle>
+                              <CS_Radio_Inner_Circle on={chartState.radioSelected === "timeline" ? true : false}></CS_Radio_Inner_Circle>
                           </CS_Radio_Outer_Circle>
                       </FlexBox>
                       <FlexBox>
