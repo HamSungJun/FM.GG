@@ -33,7 +33,9 @@ class Client{
     }
    
     async destroyConnection(){
-        await this.client.close();
+        if(this.client){
+            await this.client.close();
+        }
         return this.client = null;
     }
 

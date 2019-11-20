@@ -16,6 +16,7 @@ const mostPickReducer = (state = mostPickInitialState, action) => {
             return Object.assign({},state,{
                 mostPickInfo : [],
                 isFetching : true,
+                analyzingKey : null,
                 error: null
             })
         

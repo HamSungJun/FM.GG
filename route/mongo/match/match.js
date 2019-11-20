@@ -11,26 +11,23 @@ class MongoMatch extends Client{
 
     async getMatchByMatchId(_matchId){
         
-        if(!this.client.isConnected()){
+        if(this.client === null || (this.client !== null && !this.client.isConnected())){
             await this.createConnection();
         }
-
+       
         const db = this.client.db("FMGG");
 
         try{
-           return await db.collection("match").find({gameId : _matchId}).toArray();
+            return await db.collection("match").find({gameId : _matchId}).toArray();
         } catch (error) {
             console.log(error);
-        } finally {
-            await this.destroyConnection();
         }
-
     }
     
     async insertMatch(_match){
 
-        if(!this.client.isConnected()){
-            await this.getConnection();
+        if(this.client === null || (this.client !== null && !this.client.isConnected())){
+            await this.createConnection();
         }
  
         const db = this.client.db("FMGG");
@@ -39,10 +36,8 @@ class MongoMatch extends Client{
             return await db.collection("match").insertMany(_match)
         } catch (error) {
             console.log(error);
-        } finally {
-            await this.destroyConnection();
-        }
-
+        } 
+        
     }
 
 }
