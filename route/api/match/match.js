@@ -122,9 +122,9 @@ router.post("/getMostPickInGameData", async (req, res) => {
     try {
  
         let payload;
-
+        let matchDB;
         payload = await Promise.all(req.body.matchId.map(async _matchId => {
-            let matchDB = new MongoMatch();
+            matchDB = new MongoMatch();
             await matchDB.createConnection();
             return await matchDB.getMatchByMatchId(_matchId);
         }));
@@ -153,6 +153,7 @@ router.post("/getMostPickInGameData", async (req, res) => {
             }));
 
             payload = payload.concat(inGameData);
+            matchDB = new MongoMatch();
             await matchDB.createConnection();
             await matchDB.insertMatch(inGameData);
 
