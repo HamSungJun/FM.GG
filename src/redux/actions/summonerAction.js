@@ -17,7 +17,6 @@ export const fetchSummonerFulfilled = summoner => ({
     payload : summoner
 });
 
-export const fetchSummonerRejected = errorCode => ({
+export const fetchSummonerRejected = () => ({
     type: FETCH_SUMMONER_REJECTED,
-    errorCode
 });

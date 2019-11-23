@@ -15,15 +15,20 @@ export function* fetchSummoner() {
     yield put(leagueAction.fetchLeague());
     yield put(mostPickAction.fetchMostPick());
 
-    const {summoner} = yield call(apiCall.fetchSummonerApi, storeState.summoner.summonerName || urlParams.get("name"));
-    
-    if(summoner.status === 200){
-        yield put(summonerAction.fetchSummonerFulfilled(summoner.data));
+    const summonerResponse = yield call(apiCall.fetchSummonerApi, storeState.summoner.summonerName || urlParams.get("name"));
+    console.log(summonerResponse)
+    if(summonerResponse && summonerResponse.status === 200){
+        yield put(summonerAction.fetchSummonerFulfilled(summonerResponse.data));
+        yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
+    } else {
+        alert(summonerResponse.data.mesg);
+        yield put(summonerAction.fetchSummonerRejected());
+        return yield call(history.push,`/`)
     }
 
     const [league,mostPick] = yield all([
-        apiCall.fetchLeagueApi(summoner.data.id),
-        apiCall.fetchMostPickApi(summoner.data.accountId)
+        apiCall.fetchLeagueApi(summonerResponse.data.id),
+        apiCall.fetchMostPickApi(summonerResponse.data.accountId)
         ]);
 
     if(league.status === 200){
@@ -33,19 +38,18 @@ export function* fetchSummoner() {
     if(mostPick.status === 200){
         yield put(mostPickAction.fetchMostPickFulfilled(mostPick.data));
     }
-
-    yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
+    
 }
 
 
 
 export function* fetchLolStatus() {
-    const {status, error} = yield call(apiCall.fetchLolStatusApi);
-    if(status){
-        yield delay(2000);
-        yield put(lolStatusAction.fetchLolStatusFulfilled(status.data));
+    const statusResponse = yield call(apiCall.fetchLolStatusApi);
+    console.log(statusResponse)
+    if(statusResponse && statusResponse.status === 200){
+        yield put(lolStatusAction.fetchLolStatusFulfilled(statusResponse.data));
     } else {
-        yield put(lolStatusAction.fetchLolStatusRejected(error.response.status));
+        yield put(lolStatusAction.fetchLolStatusRejected(statusResponse.status));
     }
 }
 

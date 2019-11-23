@@ -1,26 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const KEY = require('../../../key/key.js')
-const {Kayn, REGIONS} = require('kayn');
 const SETTER = require('../setter/setter');
 const MongoMatch = require("../../mongo/match/match");
-const kayn = Kayn(KEY.API_KEY)({
-    region : REGIONS.KOREA,
-    apiURLPrefix : 'https://kr.api.riotgames.com',
-    locale : 'ko_KR',
-    debugOptions : {
-        isEnabled : true,
-        showKey: true
-    },
-    requestOptions : {
-        shouldRetry: true,
-        numberOfRetriesBeforeAbort: 3,
-        delayBeforeRetry: 3000,
-        burst: true,
-        shouldExitOn403: false,
-    },
-})
+const kayn = require('../kayn/kayn.js');
 
 const getMostPlayedChampion = (matchlist) => {
 

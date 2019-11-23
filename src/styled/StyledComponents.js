@@ -138,7 +138,7 @@ export const NavbarItem = Styled.div`
 
 export const NavbarGridItem = Styled.div`
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     padding: 0 10px;
     column-gap: 10px;
 `

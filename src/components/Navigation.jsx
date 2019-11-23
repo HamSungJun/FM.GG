@@ -33,6 +33,35 @@ class Navigation extends React.Component{
         return this.props.history.push('/');
     }
 
+    renderLolStatusIcon(){
+        const {lolStatusState} = this.props
+        return (
+            <NavbarGridItem>
+                    <NavStatusIcon 
+                    status={lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[0].status : null}isFetching={lolStatusState.isFetching}
+                    title={`게임 연결 상태 : ${lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[0].status : "알 수 없음"}`}>
+                        <FaCircleNotch />
+                    </NavStatusIcon>
+                    <NavStatusIcon 
+                    status={lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[1].status : null}isFetching={lolStatusState.isFetching}
+                    title={`상점 연결 상태 : ${lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[1].status : "알 수 없음"}`}
+                    counterSpin>
+                        <FaCircleNotch />
+                    </NavStatusIcon>
+                    <NavStatusIcon 
+                    status={lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[2].status : null}isFetching={lolStatusState.isFetching}
+                    title={`웹 연결 상태 : ${lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[2].status : "알 수 없음"}`}>
+                        <FaCircleNotch />
+                    </NavStatusIcon>
+                    <NavStatusIcon 
+                    status={lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[3].status : null}isFetching={lolStatusState.isFetching}
+                    title={`클라이언트 연결 상태 : ${lolStatusState.lolStatus.services ? lolStatusState.lolStatus.services[3].status : "알 수 없음"}`} counterSpin>
+                        <FaCircleNotch />
+                    </NavStatusIcon>
+            </NavbarGridItem>
+        )
+    }
+
     render(){
         let {
             summonerState,
@@ -50,24 +79,7 @@ class Navigation extends React.Component{
                     </NavText>
                 </NavbarItem>
                 <NavbarItem></NavbarItem>
-                <NavbarGridItem>
-                    <NavStatusIcon 
-                    status={lolStatusState.lolStatus[0] ? lolStatusState.lolStatus[0].status : null}isFetching={lolStatusState.isFetching}
-                    title={`서버 연결 상태 : ${lolStatusState.lolStatus[0] ? lolStatusState.lolStatus[0].status : "알 수 없음"}`}>
-                        <FaCircleNotch />
-                    </NavStatusIcon>
-                    <NavStatusIcon 
-                    status={lolStatusState.lolStatus[1] ? lolStatusState.lolStatus[1].status : null}isFetching={lolStatusState.isFetching}
-                    title={`상점 연결 상태 : ${lolStatusState.lolStatus[1] ? lolStatusState.lolStatus[1].status : "알 수 없음"}`}
-                    counterSpin>
-                        <FaCircleNotch />
-                    </NavStatusIcon>
-                    <NavStatusIcon 
-                    status={lolStatusState.lolStatus[2] ? lolStatusState.lolStatus[2].status : null}isFetching={lolStatusState.isFetching}
-                    title={`웹 연결 상태 : ${lolStatusState.lolStatus[2] ? lolStatusState.lolStatus[2].status : "알 수 없음"}`}>
-                        <FaCircleNotch />
-                    </NavStatusIcon>
-                </NavbarGridItem>
+                {this.renderLolStatusIcon()}
                 {
                     this.props.searchShow ? 
                     (

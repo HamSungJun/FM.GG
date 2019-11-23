@@ -4,7 +4,6 @@ const summonerInitialState = {
     summonerName : "",
     summonerInfo : {},
     isFetching : false,
-    errorCode : undefined
 }
 
 const summonerReducer = (state = summonerInitialState, action) => {
@@ -28,10 +27,7 @@ const summonerReducer = (state = summonerInitialState, action) => {
             });
         
         case summonerAction.FETCH_SUMMONER_REJECTED :
-            return Object.assign({},state,{
-                errorCode : action.errorCode,
-                isFetching: false
-            });
+            return summonerInitialState;
 
         default:
             return state;

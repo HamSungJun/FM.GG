@@ -1,18 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const KEY = require('../../../key/key.js')
+const kayn = require('../kayn/kayn.js');
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
 
-    axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${req.query.encryptedSummonerId}?api_key=${KEY.API_KEY}`)
-    .then(response => {
-        console.log(response.data);
-        return res.send(response.data).end();
-    })
-    .catch(error => {
-        return res.status(error.response.status).send(error).end();
-    })
+    try{
+        const leagueInfo = await kayn.League.Entries.by.summonerID(req.query.encryptedSummonerId);
+        res.send(leagueInfo).end();
+    } catch (error) {
+        console.log(error);
+        res.status(error.statusCode).json({
+            status : error.statusCode,
+            mesg : "소환사의 리그정보를 불러오는 중에 문제가 발생했습니다."
+        }).end();
+    }
 
 })
 

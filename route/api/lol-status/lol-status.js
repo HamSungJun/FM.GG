@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const KEY = require('../../../key/key.js')
+const kayn = require('../kayn/kayn.js');
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
 
-    axios.
-    get(`https://kr.api.riotgames.com/lol/status/v3/shard-data?api_key=${KEY.API_KEY}`)
-    .then(response => {
-        console.log(response.data.services.slice(0,3));
-        return res.send(response.data.services.slice(0,3)).end();
-    })
-    .catch(error => {
-        return res.status(error.response.status).send(error).end();
-    })
+    try{
+        const lolStatus = await kayn.Status.get();
+        console.log(lolStatus);
+        res.send(lolStatus).end();
+    } catch (error) {
+        res.status(error.statusCode).json({
+            status : error.statusCode,
+            mesg : "리그오브레전드 서버 상태에 문제가 있습니다."
+        }).end();
+    }
 
 })
 
