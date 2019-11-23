@@ -9,7 +9,8 @@ export const typeSummoner = summonerName => ({
 })
 
 export const fetchSummoner = summonerName => ({
-    type: FETCH_SUMMONER
+    type: FETCH_SUMMONER,
+    summonerName
 });
 
 export const fetchSummonerFulfilled = summoner => ({

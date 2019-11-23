@@ -10,9 +10,12 @@ import {withRouter} from 'react-router-dom';
 class Home extends React.Component{
 
     constructor(props){
-
         super(props);
-        
+    }
+
+    handleRouteToSummonerInfo(){
+        const {summonerState, summonerDispatch} = this.props;
+        this.props.history.push(`/summonerInfo?name=${summonerState.summonerName}`);
     }
 
     render(){
@@ -27,7 +30,12 @@ class Home extends React.Component{
                         <TextInput
                         value={summonerState.summonerName}
                         onChange={summonerDispatch.typeSummoner}
-                        onKeyPress={summonerDispatch.fetchSummoner}
+                        onKeyPress={(event)=>{
+                            const keyCode = event.which || event.keyCode;
+                            if(keyCode === 13){
+                                this.handleRouteToSummonerInfo();
+                            }
+                        }}
                         type={"text"} 
                         placeholder={"정지 먹을 닉네임"}
                         ></TextInput>
@@ -57,12 +65,6 @@ const mapDispatchToProps = (dispatch) => {
             typeSummoner(event){
                 dispatch(summonerAction.typeSummoner(event.target.value))
             },
-            fetchSummoner(event){
-                const keyCode = event.which || event.keyCode;
-                if(keyCode === 13){
-                    dispatch(summonerAction.fetchSummoner());
-                }
-            }
         }
     }
 

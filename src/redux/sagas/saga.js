@@ -8,18 +8,15 @@ import * as mostPickAction from '../actions/mostPickAction';
 import * as apiCall from './api/api';
 import history from '../../history/history.js';
 
-export function* fetchSummoner() {
-    const storeState = yield select();
-    const urlParams = new URLSearchParams(window.location.search);
-
+export function* fetchSummoner(action) {
+    
     yield put(leagueAction.fetchLeague());
     yield put(mostPickAction.fetchMostPick());
 
-    const summonerResponse = yield call(apiCall.fetchSummonerApi, storeState.summoner.summonerName || urlParams.get("name"));
-    console.log(summonerResponse)
+    const summonerResponse = yield call(apiCall.fetchSummonerApi, action.summonerName);
+
     if(summonerResponse && summonerResponse.status === 200){
         yield put(summonerAction.fetchSummonerFulfilled(summonerResponse.data));
-        yield call(history.push, `/summonerInfo?name=${storeState.summoner.summonerName || urlParams.get("name")}`);
     } else {
         alert(summonerResponse.data.mesg);
         yield put(summonerAction.fetchSummonerRejected());

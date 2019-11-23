@@ -33,6 +33,11 @@ class Navigation extends React.Component{
         return this.props.history.push('/');
     }
 
+    handleRouteToSummonerInfo(){
+        const {summonerState, summonerDispatch} = this.props;
+        return this.props.history.push(`/summonerInfo?name=${summonerState.summonerName}`);
+    }
+
     renderLolStatusIcon(){
         const {lolStatusState} = this.props
         return (
@@ -87,7 +92,12 @@ class Navigation extends React.Component{
                             <NavSearch
                                 value={summonerState.summonerName}
                                 onChange={summonerDispatch.typeSummoner}
-                                onKeyPress={summonerDispatch.fetchSummoner}
+                                onKeyPress={(event)=>{
+                                    const keyCode = event.which || event.keyCode;
+                                    if(keyCode === 13){
+                                        this.handleRouteToSummonerInfo();
+                                    }
+                                }}
                                 placeholder={"닉네임 입력..."}>
                             </NavSearch>
                         </NavbarItem>
@@ -114,12 +124,6 @@ const mapDispatchToProps = (dispatch) => {
         summonerDispatch : {
             typeSummoner(event){
                 dispatch(summonerAction.typeSummoner(event.target.value))
-            },
-            fetchSummoner(event){
-                const keyCode = event.which || event.keyCode;
-                if(keyCode === 13){
-                    dispatch(summonerAction.fetchSummoner());
-                }
             }
         },
 
