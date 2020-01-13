@@ -1,10 +1,10 @@
 {
   "type": "champion",
   "format": "standAloneComplex",
-  "version": "9.22.1",
+  "version": "10.1.1",
   "data": {
     "Aatrox": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Aatrox",
       "key": "266",
       "name": "아트록스",
@@ -46,7 +46,7 @@
       }
     },
     "Ahri": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ahri",
       "key": "103",
       "name": "아리",
@@ -88,7 +88,7 @@
       }
     },
     "Akali": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Akali",
       "key": "84",
       "name": "아칼리",
@@ -130,7 +130,7 @@
       }
     },
     "Alistar": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Alistar",
       "key": "12",
       "name": "알리스타",
@@ -149,7 +149,7 @@
       "tags": ["Tank", "Support"],
       "partype": "마나",
       "stats": {
-        "hp": 573.36,
+        "hp": 575,
         "hpperlevel": 106,
         "mp": 350,
         "mpperlevel": 40,
@@ -165,14 +165,14 @@
         "mpregenperlevel": 0.8,
         "crit": 0,
         "critperlevel": 0,
-        "attackdamage": 61.1116,
-        "attackdamageperlevel": 3.62,
+        "attackdamage": 62,
+        "attackdamageperlevel": 3.75,
         "attackspeedperlevel": 2.125,
         "attackspeed": 0.625
       }
     },
     "Amumu": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Amumu",
       "key": "32",
       "name": "아무무",
@@ -214,7 +214,7 @@
       }
     },
     "Anivia": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Anivia",
       "key": "34",
       "name": "애니비아",
@@ -256,7 +256,7 @@
       }
     },
     "Annie": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Annie",
       "key": "1",
       "name": "애니",
@@ -297,8 +297,50 @@
         "attackspeed": 0.579
       }
     },
+    "Aphelios": {
+      "version": "10.1.1",
+      "id": "Aphelios",
+      "key": "523",
+      "name": "아펠리오스",
+      "title": "신념의 무기",
+      "blurb": "달그림자에서 나타나는 아펠리오스는 음울한 적막 속에서 적을 쓰러뜨린다. 정확한 조준과 총성만이 그의 목소리를 대신한다. 독에 중독되어 말을 할 수 없게 되었지만 머나먼 사원에 있는 쌍둥이 여동생 알룬이 그를 인도하며 월석의 힘을 그의 손에 쥐여 준다. 하늘에서 달이 빛나는 한 아펠리오스는 결코 혼자가 아니다.",
+      "info": { "attack": 6, "defense": 2, "magic": 1, "difficulty": 10 },
+      "image": {
+        "full": "Aphelios.png",
+        "sprite": "champion0.png",
+        "group": "champion",
+        "x": 336,
+        "y": 0,
+        "w": 48,
+        "h": 48
+      },
+      "tags": ["Marksman"],
+      "partype": "마나",
+      "stats": {
+        "hp": 530,
+        "hpperlevel": 86,
+        "mp": 348,
+        "mpperlevel": 42,
+        "movespeed": 330,
+        "armor": 28,
+        "armorperlevel": 3,
+        "spellblock": 26,
+        "spellblockperlevel": 0.5,
+        "attackrange": 550,
+        "hpregen": 3.25,
+        "hpregenperlevel": 0.55,
+        "mpregen": 6.5,
+        "mpregenperlevel": 0.4,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 57,
+        "attackdamageperlevel": 2.2,
+        "attackspeedperlevel": 2.1,
+        "attackspeed": 0.64
+      }
+    },
     "Ashe": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ashe",
       "key": "22",
       "name": "애쉬",
@@ -309,7 +351,7 @@
         "full": "Ashe.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 0,
         "w": 48,
         "h": 48
@@ -340,7 +382,7 @@
       }
     },
     "AurelionSol": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "AurelionSol",
       "key": "136",
       "name": "아우렐리온 솔",
@@ -351,7 +393,7 @@
         "full": "AurelionSol.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 0,
         "w": 48,
         "h": 48
@@ -382,7 +424,7 @@
       }
     },
     "Azir": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Azir",
       "key": "268",
       "name": "아지르",
@@ -393,8 +435,8 @@
         "full": "Azir.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 432,
-        "y": 0,
+        "x": 0,
+        "y": 48,
         "w": 48,
         "h": 48
       },
@@ -424,7 +466,7 @@
       }
     },
     "Bard": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Bard",
       "key": "432",
       "name": "바드",
@@ -435,7 +477,7 @@
         "full": "Bard.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 48,
         "w": 48,
         "h": 48
@@ -466,7 +508,7 @@
       }
     },
     "Blitzcrank": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Blitzcrank",
       "key": "53",
       "name": "블리츠크랭크",
@@ -477,7 +519,7 @@
         "full": "Blitzcrank.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 48,
         "w": 48,
         "h": 48
@@ -508,7 +550,7 @@
       }
     },
     "Brand": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Brand",
       "key": "63",
       "name": "브랜드",
@@ -519,7 +561,7 @@
         "full": "Brand.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 48,
         "w": 48,
         "h": 48
@@ -550,7 +592,7 @@
       }
     },
     "Braum": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Braum",
       "key": "201",
       "name": "브라움",
@@ -561,7 +603,7 @@
         "full": "Braum.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 48,
         "w": 48,
         "h": 48
@@ -570,7 +612,7 @@
       "partype": "마나",
       "stats": {
         "hp": 540,
-        "hpperlevel": 87,
+        "hpperlevel": 98,
         "mp": 310.6,
         "mpperlevel": 45,
         "movespeed": 335,
@@ -579,7 +621,7 @@
         "spellblock": 32.1,
         "spellblockperlevel": 1.25,
         "attackrange": 125,
-        "hpregen": 8,
+        "hpregen": 8.5,
         "hpregenperlevel": 1,
         "mpregen": 6,
         "mpregenperlevel": 0.8,
@@ -592,7 +634,7 @@
       }
     },
     "Caitlyn": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Caitlyn",
       "key": "51",
       "name": "케이틀린",
@@ -603,7 +645,7 @@
         "full": "Caitlyn.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 48,
         "w": 48,
         "h": 48
@@ -634,7 +676,7 @@
       }
     },
     "Camille": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Camille",
       "key": "164",
       "name": "카밀",
@@ -645,7 +687,7 @@
         "full": "Camille.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 48,
         "w": 48,
         "h": 48
@@ -676,7 +718,7 @@
       }
     },
     "Cassiopeia": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Cassiopeia",
       "key": "69",
       "name": "카시오페아",
@@ -687,7 +729,7 @@
         "full": "Cassiopeia.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 48,
         "w": 48,
         "h": 48
@@ -718,7 +760,7 @@
       }
     },
     "Chogath": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Chogath",
       "key": "31",
       "name": "초가스",
@@ -729,7 +771,7 @@
         "full": "Chogath.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 48,
         "w": 48,
         "h": 48
@@ -760,7 +802,7 @@
       }
     },
     "Corki": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Corki",
       "key": "42",
       "name": "코르키",
@@ -771,7 +813,7 @@
         "full": "Corki.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 48,
         "w": 48,
         "h": 48
@@ -802,7 +844,7 @@
       }
     },
     "Darius": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Darius",
       "key": "122",
       "name": "다리우스",
@@ -813,8 +855,8 @@
         "full": "Darius.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 432,
-        "y": 48,
+        "x": 0,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -844,7 +886,7 @@
       }
     },
     "Diana": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Diana",
       "key": "131",
       "name": "다이애나",
@@ -855,7 +897,7 @@
         "full": "Diana.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 96,
         "w": 48,
         "h": 48
@@ -865,8 +907,8 @@
       "stats": {
         "hp": 594,
         "hpperlevel": 95,
-        "mp": 372,
-        "mpperlevel": 20,
+        "mp": 420,
+        "mpperlevel": 25,
         "movespeed": 345,
         "armor": 31,
         "armorperlevel": 3.6,
@@ -879,14 +921,14 @@
         "mpregenperlevel": 0.8,
         "crit": 0,
         "critperlevel": 0,
-        "attackdamage": 53.04,
+        "attackdamage": 57.04,
         "attackdamageperlevel": 3,
         "attackspeedperlevel": 2.25,
         "attackspeed": 0.625
       }
     },
     "Draven": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Draven",
       "key": "119",
       "name": "드레이븐",
@@ -897,7 +939,7 @@
         "full": "Draven.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 96,
         "w": 48,
         "h": 48
@@ -928,7 +970,7 @@
       }
     },
     "DrMundo": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "DrMundo",
       "key": "36",
       "name": "문도 박사",
@@ -939,7 +981,7 @@
         "full": "DrMundo.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 96,
         "w": 48,
         "h": 48
@@ -970,7 +1012,7 @@
       }
     },
     "Ekko": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ekko",
       "key": "245",
       "name": "에코",
@@ -981,7 +1023,7 @@
         "full": "Ekko.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1012,7 +1054,7 @@
       }
     },
     "Elise": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Elise",
       "key": "60",
       "name": "엘리스",
@@ -1023,7 +1065,7 @@
         "full": "Elise.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1054,7 +1096,7 @@
       }
     },
     "Evelynn": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Evelynn",
       "key": "28",
       "name": "이블린",
@@ -1065,7 +1107,7 @@
         "full": "Evelynn.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1096,7 +1138,7 @@
       }
     },
     "Ezreal": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ezreal",
       "key": "81",
       "name": "이즈리얼",
@@ -1107,7 +1149,7 @@
         "full": "Ezreal.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1115,9 +1157,9 @@
       "tags": ["Marksman", "Mage"],
       "partype": "마나",
       "stats": {
-        "hp": 491,
+        "hp": 500,
         "hpperlevel": 86,
-        "mp": 360.6,
+        "mp": 375,
         "mpperlevel": 42,
         "movespeed": 325,
         "armor": 22,
@@ -1127,7 +1169,7 @@
         "attackrange": 550,
         "hpregen": 4,
         "hpregenperlevel": 0.55,
-        "mpregen": 8.092,
+        "mpregen": 8.5,
         "mpregenperlevel": 0.65,
         "crit": 0,
         "critperlevel": 0,
@@ -1138,7 +1180,7 @@
       }
     },
     "Fiddlesticks": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Fiddlesticks",
       "key": "9",
       "name": "피들스틱",
@@ -1149,7 +1191,7 @@
         "full": "Fiddlesticks.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1180,7 +1222,7 @@
       }
     },
     "Fiora": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Fiora",
       "key": "114",
       "name": "피오라",
@@ -1191,7 +1233,7 @@
         "full": "Fiora.png",
         "sprite": "champion0.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 96,
         "w": 48,
         "h": 48
@@ -1222,7 +1264,7 @@
       }
     },
     "Fizz": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Fizz",
       "key": "105",
       "name": "피즈",
@@ -1231,10 +1273,10 @@
       "info": { "attack": 6, "defense": 4, "magic": 7, "difficulty": 6 },
       "image": {
         "full": "Fizz.png",
-        "sprite": "champion0.png",
+        "sprite": "champion1.png",
         "group": "champion",
-        "x": 432,
-        "y": 96,
+        "x": 0,
+        "y": 0,
         "w": 48,
         "h": 48
       },
@@ -1264,7 +1306,7 @@
       }
     },
     "Galio": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Galio",
       "key": "3",
       "name": "갈리오",
@@ -1275,7 +1317,7 @@
         "full": "Galio.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1306,7 +1348,7 @@
       }
     },
     "Gangplank": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Gangplank",
       "key": "41",
       "name": "갱플랭크",
@@ -1317,7 +1359,7 @@
         "full": "Gangplank.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1348,7 +1390,7 @@
       }
     },
     "Garen": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Garen",
       "key": "86",
       "name": "가렌",
@@ -1359,7 +1401,7 @@
         "full": "Garen.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1390,7 +1432,7 @@
       }
     },
     "Gnar": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Gnar",
       "key": "150",
       "name": "나르",
@@ -1401,7 +1443,7 @@
         "full": "Gnar.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1432,7 +1474,7 @@
       }
     },
     "Gragas": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Gragas",
       "key": "79",
       "name": "그라가스",
@@ -1443,7 +1485,7 @@
         "full": "Gragas.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1474,7 +1516,7 @@
       }
     },
     "Graves": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Graves",
       "key": "104",
       "name": "그레이브즈",
@@ -1485,7 +1527,7 @@
         "full": "Graves.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1516,7 +1558,7 @@
       }
     },
     "Hecarim": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Hecarim",
       "key": "120",
       "name": "헤카림",
@@ -1527,7 +1569,7 @@
         "full": "Hecarim.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1558,7 +1600,7 @@
       }
     },
     "Heimerdinger": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Heimerdinger",
       "key": "74",
       "name": "하이머딩거",
@@ -1569,7 +1611,7 @@
         "full": "Heimerdinger.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1600,7 +1642,7 @@
       }
     },
     "Illaoi": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Illaoi",
       "key": "420",
       "name": "일라오이",
@@ -1611,7 +1653,7 @@
         "full": "Illaoi.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 0,
         "w": 48,
         "h": 48
@@ -1642,7 +1684,7 @@
       }
     },
     "Irelia": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Irelia",
       "key": "39",
       "name": "이렐리아",
@@ -1653,8 +1695,8 @@
         "full": "Irelia.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 432,
-        "y": 0,
+        "x": 0,
+        "y": 48,
         "w": 48,
         "h": 48
       },
@@ -1684,7 +1726,7 @@
       }
     },
     "Ivern": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ivern",
       "key": "427",
       "name": "아이번",
@@ -1695,7 +1737,7 @@
         "full": "Ivern.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1726,7 +1768,7 @@
       }
     },
     "Janna": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Janna",
       "key": "40",
       "name": "잔나",
@@ -1737,7 +1779,7 @@
         "full": "Janna.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1768,7 +1810,7 @@
       }
     },
     "JarvanIV": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "JarvanIV",
       "key": "59",
       "name": "자르반 4세",
@@ -1779,7 +1821,7 @@
         "full": "JarvanIV.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1810,7 +1852,7 @@
       }
     },
     "Jax": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Jax",
       "key": "24",
       "name": "잭스",
@@ -1821,7 +1863,7 @@
         "full": "Jax.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1852,7 +1894,7 @@
       }
     },
     "Jayce": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Jayce",
       "key": "126",
       "name": "제이스",
@@ -1863,7 +1905,7 @@
         "full": "Jayce.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1894,7 +1936,7 @@
       }
     },
     "Jhin": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Jhin",
       "key": "202",
       "name": "진",
@@ -1905,7 +1947,7 @@
         "full": "Jhin.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1936,7 +1978,7 @@
       }
     },
     "Jinx": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Jinx",
       "key": "222",
       "name": "징크스",
@@ -1947,7 +1989,7 @@
         "full": "Jinx.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 48,
         "w": 48,
         "h": 48
@@ -1978,7 +2020,7 @@
       }
     },
     "Kaisa": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kaisa",
       "key": "145",
       "name": "카이사",
@@ -1989,7 +2031,7 @@
         "full": "Kaisa.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 48,
         "w": 48,
         "h": 48
@@ -2020,7 +2062,7 @@
       }
     },
     "Kalista": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kalista",
       "key": "429",
       "name": "칼리스타",
@@ -2031,7 +2073,7 @@
         "full": "Kalista.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 48,
         "w": 48,
         "h": 48
@@ -2040,12 +2082,12 @@
       "partype": "마나",
       "stats": {
         "hp": 534,
-        "hpperlevel": 89,
+        "hpperlevel": 100,
         "mp": 250,
         "mpperlevel": 45,
         "movespeed": 325,
         "armor": 23,
-        "armorperlevel": 3.5,
+        "armorperlevel": 4,
         "spellblock": 30,
         "spellblockperlevel": 0.5,
         "attackrange": 525,
@@ -2062,7 +2104,7 @@
       }
     },
     "Karma": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Karma",
       "key": "43",
       "name": "카르마",
@@ -2073,8 +2115,8 @@
         "full": "Karma.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 432,
-        "y": 48,
+        "x": 0,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -2104,7 +2146,7 @@
       }
     },
     "Karthus": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Karthus",
       "key": "30",
       "name": "카서스",
@@ -2115,7 +2157,7 @@
         "full": "Karthus.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2146,7 +2188,7 @@
       }
     },
     "Kassadin": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kassadin",
       "key": "38",
       "name": "카사딘",
@@ -2157,7 +2199,7 @@
         "full": "Kassadin.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2169,7 +2211,7 @@
         "hpperlevel": 90,
         "mp": 397.6,
         "mpperlevel": 67,
-        "movespeed": 340,
+        "movespeed": 335,
         "armor": 19,
         "armorperlevel": 2.8,
         "spellblock": 30,
@@ -2188,7 +2230,7 @@
       }
     },
     "Katarina": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Katarina",
       "key": "55",
       "name": "카타리나",
@@ -2199,7 +2241,7 @@
         "full": "Katarina.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2230,7 +2272,7 @@
       }
     },
     "Kayle": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kayle",
       "key": "10",
       "name": "케일",
@@ -2241,7 +2283,7 @@
         "full": "Kayle.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2272,7 +2314,7 @@
       }
     },
     "Kayn": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kayn",
       "key": "141",
       "name": "케인",
@@ -2283,7 +2325,7 @@
         "full": "Kayn.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2314,7 +2356,7 @@
       }
     },
     "Kennen": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kennen",
       "key": "85",
       "name": "케넨",
@@ -2325,7 +2367,7 @@
         "full": "Kennen.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2356,7 +2398,7 @@
       }
     },
     "Khazix": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Khazix",
       "key": "121",
       "name": "카직스",
@@ -2367,7 +2409,7 @@
         "full": "Khazix.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2398,7 +2440,7 @@
       }
     },
     "Kindred": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kindred",
       "key": "203",
       "name": "킨드레드",
@@ -2409,7 +2451,7 @@
         "full": "Kindred.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2440,7 +2482,7 @@
       }
     },
     "Kled": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Kled",
       "key": "240",
       "name": "클레드",
@@ -2451,7 +2493,7 @@
         "full": "Kled.png",
         "sprite": "champion1.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 96,
         "w": 48,
         "h": 48
@@ -2482,7 +2524,7 @@
       }
     },
     "KogMaw": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "KogMaw",
       "key": "96",
       "name": "코그모",
@@ -2491,10 +2533,10 @@
       "info": { "attack": 8, "defense": 2, "magic": 5, "difficulty": 6 },
       "image": {
         "full": "KogMaw.png",
-        "sprite": "champion1.png",
+        "sprite": "champion2.png",
         "group": "champion",
-        "x": 432,
-        "y": 96,
+        "x": 0,
+        "y": 0,
         "w": 48,
         "h": 48
       },
@@ -2524,7 +2566,7 @@
       }
     },
     "Leblanc": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Leblanc",
       "key": "7",
       "name": "르블랑",
@@ -2535,7 +2577,7 @@
         "full": "Leblanc.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2566,7 +2608,7 @@
       }
     },
     "LeeSin": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "LeeSin",
       "key": "64",
       "name": "리 신",
@@ -2577,7 +2619,7 @@
         "full": "LeeSin.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2608,7 +2650,7 @@
       }
     },
     "Leona": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Leona",
       "key": "89",
       "name": "레오나",
@@ -2619,7 +2661,7 @@
         "full": "Leona.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2650,7 +2692,7 @@
       }
     },
     "Lissandra": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Lissandra",
       "key": "127",
       "name": "리산드라",
@@ -2661,7 +2703,7 @@
         "full": "Lissandra.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2692,7 +2734,7 @@
       }
     },
     "Lucian": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Lucian",
       "key": "236",
       "name": "루시안",
@@ -2703,7 +2745,7 @@
         "full": "Lucian.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2734,7 +2776,7 @@
       }
     },
     "Lulu": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Lulu",
       "key": "117",
       "name": "룰루",
@@ -2745,7 +2787,7 @@
         "full": "Lulu.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2776,7 +2818,7 @@
       }
     },
     "Lux": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Lux",
       "key": "99",
       "name": "럭스",
@@ -2787,7 +2829,7 @@
         "full": "Lux.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2818,7 +2860,7 @@
       }
     },
     "Malphite": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Malphite",
       "key": "54",
       "name": "말파이트",
@@ -2829,7 +2871,7 @@
         "full": "Malphite.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2860,7 +2902,7 @@
       }
     },
     "Malzahar": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Malzahar",
       "key": "90",
       "name": "말자하",
@@ -2871,7 +2913,7 @@
         "full": "Malzahar.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 0,
         "w": 48,
         "h": 48
@@ -2902,7 +2944,7 @@
       }
     },
     "Maokai": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Maokai",
       "key": "57",
       "name": "마오카이",
@@ -2913,8 +2955,8 @@
         "full": "Maokai.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 432,
-        "y": 0,
+        "x": 0,
+        "y": 48,
         "w": 48,
         "h": 48
       },
@@ -2944,7 +2986,7 @@
       }
     },
     "MasterYi": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "MasterYi",
       "key": "11",
       "name": "마스터 이",
@@ -2955,7 +2997,7 @@
         "full": "MasterYi.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 48,
         "w": 48,
         "h": 48
@@ -2986,7 +3028,7 @@
       }
     },
     "MissFortune": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "MissFortune",
       "key": "21",
       "name": "미스 포츈",
@@ -2997,7 +3039,7 @@
         "full": "MissFortune.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3028,7 +3070,7 @@
       }
     },
     "MonkeyKing": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "MonkeyKing",
       "key": "62",
       "name": "오공",
@@ -3039,7 +3081,7 @@
         "full": "MonkeyKing.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3070,7 +3112,7 @@
       }
     },
     "Mordekaiser": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Mordekaiser",
       "key": "82",
       "name": "모데카이저",
@@ -3081,7 +3123,7 @@
         "full": "Mordekaiser.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3112,7 +3154,7 @@
       }
     },
     "Morgana": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Morgana",
       "key": "25",
       "name": "모르가나",
@@ -3123,7 +3165,7 @@
         "full": "Morgana.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3154,7 +3196,7 @@
       }
     },
     "Nami": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nami",
       "key": "267",
       "name": "나미",
@@ -3165,7 +3207,7 @@
         "full": "Nami.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3196,7 +3238,7 @@
       }
     },
     "Nasus": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nasus",
       "key": "75",
       "name": "나서스",
@@ -3207,7 +3249,7 @@
         "full": "Nasus.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3238,7 +3280,7 @@
       }
     },
     "Nautilus": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nautilus",
       "key": "111",
       "name": "노틸러스",
@@ -3249,7 +3291,7 @@
         "full": "Nautilus.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3280,7 +3322,7 @@
       }
     },
     "Neeko": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Neeko",
       "key": "518",
       "name": "니코",
@@ -3291,7 +3333,7 @@
         "full": "Neeko.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 48,
         "w": 48,
         "h": 48
@@ -3322,7 +3364,7 @@
       }
     },
     "Nidalee": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nidalee",
       "key": "76",
       "name": "니달리",
@@ -3333,8 +3375,8 @@
         "full": "Nidalee.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 432,
-        "y": 48,
+        "x": 0,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -3364,7 +3406,7 @@
       }
     },
     "Nocturne": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nocturne",
       "key": "56",
       "name": "녹턴",
@@ -3375,7 +3417,7 @@
         "full": "Nocturne.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3406,7 +3448,7 @@
       }
     },
     "Nunu": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Nunu",
       "key": "20",
       "name": "누누와 윌럼프",
@@ -3417,7 +3459,7 @@
         "full": "Nunu.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3448,7 +3490,7 @@
       }
     },
     "Olaf": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Olaf",
       "key": "2",
       "name": "올라프",
@@ -3459,7 +3501,7 @@
         "full": "Olaf.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3490,7 +3532,7 @@
       }
     },
     "Orianna": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Orianna",
       "key": "61",
       "name": "오리아나",
@@ -3501,7 +3543,7 @@
         "full": "Orianna.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3532,7 +3574,7 @@
       }
     },
     "Ornn": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ornn",
       "key": "516",
       "name": "오른",
@@ -3543,7 +3585,7 @@
         "full": "Ornn.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3574,7 +3616,7 @@
       }
     },
     "Pantheon": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Pantheon",
       "key": "80",
       "name": "판테온",
@@ -3585,7 +3627,7 @@
         "full": "Pantheon.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3616,7 +3658,7 @@
       }
     },
     "Poppy": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Poppy",
       "key": "78",
       "name": "뽀삐",
@@ -3627,7 +3669,7 @@
         "full": "Poppy.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3658,7 +3700,7 @@
       }
     },
     "Pyke": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Pyke",
       "key": "555",
       "name": "파이크",
@@ -3669,7 +3711,7 @@
         "full": "Pyke.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3700,7 +3742,7 @@
       }
     },
     "Qiyana": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Qiyana",
       "key": "246",
       "name": "키아나",
@@ -3711,7 +3753,7 @@
         "full": "Qiyana.png",
         "sprite": "champion2.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 96,
         "w": 48,
         "h": 48
@@ -3742,7 +3784,7 @@
       }
     },
     "Quinn": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Quinn",
       "key": "133",
       "name": "퀸",
@@ -3751,10 +3793,10 @@
       "info": { "attack": 9, "defense": 4, "magic": 2, "difficulty": 5 },
       "image": {
         "full": "Quinn.png",
-        "sprite": "champion2.png",
+        "sprite": "champion3.png",
         "group": "champion",
-        "x": 432,
-        "y": 96,
+        "x": 0,
+        "y": 0,
         "w": 48,
         "h": 48
       },
@@ -3784,7 +3826,7 @@
       }
     },
     "Rakan": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Rakan",
       "key": "497",
       "name": "라칸",
@@ -3795,7 +3837,7 @@
         "full": "Rakan.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 0,
+        "x": 48,
         "y": 0,
         "w": 48,
         "h": 48
@@ -3826,7 +3868,7 @@
       }
     },
     "Rammus": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Rammus",
       "key": "33",
       "name": "람머스",
@@ -3837,7 +3879,7 @@
         "full": "Rammus.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 48,
+        "x": 96,
         "y": 0,
         "w": 48,
         "h": 48
@@ -3846,7 +3888,7 @@
       "partype": "마나",
       "stats": {
         "hp": 564.48,
-        "hpperlevel": 86,
+        "hpperlevel": 95,
         "mp": 310.44,
         "mpperlevel": 33,
         "movespeed": 335,
@@ -3868,7 +3910,7 @@
       }
     },
     "RekSai": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "RekSai",
       "key": "421",
       "name": "렉사이",
@@ -3879,7 +3921,7 @@
         "full": "RekSai.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 96,
+        "x": 144,
         "y": 0,
         "w": 48,
         "h": 48
@@ -3910,7 +3952,7 @@
       }
     },
     "Renekton": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Renekton",
       "key": "58",
       "name": "레넥톤",
@@ -3921,7 +3963,7 @@
         "full": "Renekton.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 144,
+        "x": 192,
         "y": 0,
         "w": 48,
         "h": 48
@@ -3952,7 +3994,7 @@
       }
     },
     "Rengar": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Rengar",
       "key": "107",
       "name": "렝가",
@@ -3963,7 +4005,7 @@
         "full": "Rengar.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 192,
+        "x": 240,
         "y": 0,
         "w": 48,
         "h": 48
@@ -3994,7 +4036,7 @@
       }
     },
     "Riven": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Riven",
       "key": "92",
       "name": "리븐",
@@ -4005,7 +4047,7 @@
         "full": "Riven.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 240,
+        "x": 288,
         "y": 0,
         "w": 48,
         "h": 48
@@ -4036,7 +4078,7 @@
       }
     },
     "Rumble": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Rumble",
       "key": "68",
       "name": "럼블",
@@ -4047,7 +4089,7 @@
         "full": "Rumble.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 288,
+        "x": 336,
         "y": 0,
         "w": 48,
         "h": 48
@@ -4078,7 +4120,7 @@
       }
     },
     "Ryze": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ryze",
       "key": "13",
       "name": "라이즈",
@@ -4089,7 +4131,7 @@
         "full": "Ryze.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 336,
+        "x": 384,
         "y": 0,
         "w": 48,
         "h": 48
@@ -4120,7 +4162,7 @@
       }
     },
     "Sejuani": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Sejuani",
       "key": "113",
       "name": "세주아니",
@@ -4131,7 +4173,7 @@
         "full": "Sejuani.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 384,
+        "x": 432,
         "y": 0,
         "w": 48,
         "h": 48
@@ -4140,7 +4182,7 @@
       "partype": "마나",
       "stats": {
         "hp": 560,
-        "hpperlevel": 95,
+        "hpperlevel": 100,
         "mp": 400,
         "mpperlevel": 40,
         "movespeed": 340,
@@ -4162,7 +4204,7 @@
       }
     },
     "Senna": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Senna",
       "key": "235",
       "name": "세나",
@@ -4173,16 +4215,16 @@
         "full": "Senna.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 432,
-        "y": 0,
+        "x": 0,
+        "y": 48,
         "w": 48,
         "h": 48
       },
-      "tags": ["Marksman", "Mage"],
+      "tags": ["Marksman", "Support"],
       "partype": "마나",
       "stats": {
         "hp": 520,
-        "hpperlevel": 85,
+        "hpperlevel": 75,
         "mp": 350,
         "mpperlevel": 45,
         "movespeed": 330,
@@ -4203,8 +4245,50 @@
         "attackspeed": 0.625
       }
     },
+    "Sett": {
+      "version": "10.1.1",
+      "id": "Sett",
+      "key": "875",
+      "name": "세트",
+      "title": "우두머리",
+      "blurb": "점점 세력을 더해 가는 아이오니아 범죄 세계의 우두머리 세트는 녹서스와의 전쟁이 끝남과 동시에 두각을 드러내기 시작했다. 나보리 투기장의 신인 투사로 등장한 그는 무지막지한 힘과 상상을 초월하는 맷집으로 금세 유명인사가 되었고, 동네 싸움꾼에서 한때 그가 싸웠던 투기장을 지배하는 정상의 자리까지 올라섰다.",
+      "info": { "attack": 8, "defense": 5, "magic": 1, "difficulty": 2 },
+      "image": {
+        "full": "Sett.png",
+        "sprite": "champion3.png",
+        "group": "champion",
+        "x": 48,
+        "y": 48,
+        "w": 48,
+        "h": 48
+      },
+      "tags": ["Fighter", "Tank"],
+      "partype": "분노",
+      "stats": {
+        "hp": 600,
+        "hpperlevel": 93,
+        "mp": 0,
+        "mpperlevel": 0,
+        "movespeed": 340,
+        "armor": 37,
+        "armorperlevel": 4,
+        "spellblock": 32,
+        "spellblockperlevel": 1.25,
+        "attackrange": 125,
+        "hpregen": 9.25,
+        "hpregenperlevel": 0.75,
+        "mpregen": 0,
+        "mpregenperlevel": 0,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 60,
+        "attackdamageperlevel": 4,
+        "attackspeedperlevel": 1.75,
+        "attackspeed": 0.625
+      }
+    },
     "Shaco": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Shaco",
       "key": "35",
       "name": "샤코",
@@ -4215,7 +4299,7 @@
         "full": "Shaco.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 0,
+        "x": 96,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4246,7 +4330,7 @@
       }
     },
     "Shen": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Shen",
       "key": "98",
       "name": "쉔",
@@ -4257,7 +4341,7 @@
         "full": "Shen.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 48,
+        "x": 144,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4288,7 +4372,7 @@
       }
     },
     "Shyvana": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Shyvana",
       "key": "102",
       "name": "쉬바나",
@@ -4299,7 +4383,7 @@
         "full": "Shyvana.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 96,
+        "x": 192,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4330,7 +4414,7 @@
       }
     },
     "Singed": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Singed",
       "key": "27",
       "name": "신지드",
@@ -4341,7 +4425,7 @@
         "full": "Singed.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 144,
+        "x": 240,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4372,7 +4456,7 @@
       }
     },
     "Sion": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Sion",
       "key": "14",
       "name": "사이온",
@@ -4383,7 +4467,7 @@
         "full": "Sion.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 192,
+        "x": 288,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4414,7 +4498,7 @@
       }
     },
     "Sivir": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Sivir",
       "key": "15",
       "name": "시비르",
@@ -4425,7 +4509,7 @@
         "full": "Sivir.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 240,
+        "x": 336,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4449,14 +4533,14 @@
         "mpregenperlevel": 0.9,
         "crit": 0,
         "critperlevel": 0,
-        "attackdamage": 61,
+        "attackdamage": 63,
         "attackdamageperlevel": 3,
         "attackspeedperlevel": 1.6,
         "attackspeed": 0.625
       }
     },
     "Skarner": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Skarner",
       "key": "72",
       "name": "스카너",
@@ -4467,7 +4551,7 @@
         "full": "Skarner.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 288,
+        "x": 384,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4498,7 +4582,7 @@
       }
     },
     "Sona": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Sona",
       "key": "37",
       "name": "소나",
@@ -4509,7 +4593,7 @@
         "full": "Sona.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 336,
+        "x": 432,
         "y": 48,
         "w": 48,
         "h": 48
@@ -4540,7 +4624,7 @@
       }
     },
     "Soraka": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Soraka",
       "key": "16",
       "name": "소라카",
@@ -4551,8 +4635,8 @@
         "full": "Soraka.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 384,
-        "y": 48,
+        "x": 0,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -4582,7 +4666,7 @@
       }
     },
     "Swain": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Swain",
       "key": "50",
       "name": "스웨인",
@@ -4593,8 +4677,8 @@
         "full": "Swain.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 432,
-        "y": 48,
+        "x": 48,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -4624,7 +4708,7 @@
       }
     },
     "Sylas": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Sylas",
       "key": "517",
       "name": "사일러스",
@@ -4635,7 +4719,7 @@
         "full": "Sylas.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 0,
+        "x": 96,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4643,15 +4727,15 @@
       "tags": ["Mage", "Assassin"],
       "partype": "마나",
       "stats": {
-        "hp": 585,
-        "hpperlevel": 95,
+        "hp": 525,
+        "hpperlevel": 115,
         "mp": 280,
         "mpperlevel": 50,
         "movespeed": 340,
-        "armor": 32,
-        "armorperlevel": 3,
-        "spellblock": 39,
-        "spellblockperlevel": 1.25,
+        "armor": 27,
+        "armorperlevel": 4,
+        "spellblock": 32,
+        "spellblockperlevel": 1.75,
         "attackrange": 175,
         "hpregen": 9,
         "hpregenperlevel": 0.9,
@@ -4666,7 +4750,7 @@
       }
     },
     "Syndra": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Syndra",
       "key": "134",
       "name": "신드라",
@@ -4677,7 +4761,7 @@
         "full": "Syndra.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 48,
+        "x": 144,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4708,7 +4792,7 @@
       }
     },
     "TahmKench": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "TahmKench",
       "key": "223",
       "name": "탐 켄치",
@@ -4719,7 +4803,7 @@
         "full": "TahmKench.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 96,
+        "x": 192,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4750,7 +4834,7 @@
       }
     },
     "Taliyah": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Taliyah",
       "key": "163",
       "name": "탈리야",
@@ -4761,7 +4845,7 @@
         "full": "Taliyah.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 144,
+        "x": 240,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4792,7 +4876,7 @@
       }
     },
     "Talon": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Talon",
       "key": "91",
       "name": "탈론",
@@ -4803,7 +4887,7 @@
         "full": "Talon.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 192,
+        "x": 288,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4834,7 +4918,7 @@
       }
     },
     "Taric": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Taric",
       "key": "44",
       "name": "타릭",
@@ -4845,7 +4929,7 @@
         "full": "Taric.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 240,
+        "x": 336,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4876,7 +4960,7 @@
       }
     },
     "Teemo": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Teemo",
       "key": "17",
       "name": "티모",
@@ -4887,7 +4971,7 @@
         "full": "Teemo.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 288,
+        "x": 384,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4918,7 +5002,7 @@
       }
     },
     "Thresh": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Thresh",
       "key": "412",
       "name": "쓰레쉬",
@@ -4929,7 +5013,7 @@
         "full": "Thresh.png",
         "sprite": "champion3.png",
         "group": "champion",
-        "x": 336,
+        "x": 432,
         "y": 96,
         "w": 48,
         "h": 48
@@ -4960,7 +5044,7 @@
       }
     },
     "Tristana": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Tristana",
       "key": "18",
       "name": "트리스타나",
@@ -4969,10 +5053,10 @@
       "info": { "attack": 9, "defense": 3, "magic": 5, "difficulty": 4 },
       "image": {
         "full": "Tristana.png",
-        "sprite": "champion3.png",
+        "sprite": "champion4.png",
         "group": "champion",
-        "x": 384,
-        "y": 96,
+        "x": 0,
+        "y": 0,
         "w": 48,
         "h": 48
       },
@@ -5002,7 +5086,7 @@
       }
     },
     "Trundle": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Trundle",
       "key": "48",
       "name": "트런들",
@@ -5011,10 +5095,10 @@
       "info": { "attack": 7, "defense": 6, "magic": 2, "difficulty": 5 },
       "image": {
         "full": "Trundle.png",
-        "sprite": "champion3.png",
+        "sprite": "champion4.png",
         "group": "champion",
-        "x": 432,
-        "y": 96,
+        "x": 48,
+        "y": 0,
         "w": 48,
         "h": 48
       },
@@ -5044,7 +5128,7 @@
       }
     },
     "Tryndamere": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Tryndamere",
       "key": "23",
       "name": "트린다미어",
@@ -5055,7 +5139,7 @@
         "full": "Tryndamere.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 0,
+        "x": 96,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5086,7 +5170,7 @@
       }
     },
     "TwistedFate": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "TwistedFate",
       "key": "4",
       "name": "트위스티드 페이트",
@@ -5097,7 +5181,7 @@
         "full": "TwistedFate.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 48,
+        "x": 144,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5128,7 +5212,7 @@
       }
     },
     "Twitch": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Twitch",
       "key": "29",
       "name": "트위치",
@@ -5139,7 +5223,7 @@
         "full": "Twitch.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 96,
+        "x": 192,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5170,7 +5254,7 @@
       }
     },
     "Udyr": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Udyr",
       "key": "77",
       "name": "우디르",
@@ -5181,7 +5265,7 @@
         "full": "Udyr.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 144,
+        "x": 240,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5212,7 +5296,7 @@
       }
     },
     "Urgot": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Urgot",
       "key": "6",
       "name": "우르곳",
@@ -5223,7 +5307,7 @@
         "full": "Urgot.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 192,
+        "x": 288,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5254,7 +5338,7 @@
       }
     },
     "Varus": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Varus",
       "key": "110",
       "name": "바루스",
@@ -5265,7 +5349,7 @@
         "full": "Varus.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 240,
+        "x": 336,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5296,7 +5380,7 @@
       }
     },
     "Vayne": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Vayne",
       "key": "67",
       "name": "베인",
@@ -5307,7 +5391,7 @@
         "full": "Vayne.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 288,
+        "x": 384,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5338,7 +5422,7 @@
       }
     },
     "Veigar": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Veigar",
       "key": "45",
       "name": "베이가",
@@ -5349,7 +5433,7 @@
         "full": "Veigar.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 336,
+        "x": 432,
         "y": 0,
         "w": 48,
         "h": 48
@@ -5380,7 +5464,7 @@
       }
     },
     "Velkoz": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Velkoz",
       "key": "161",
       "name": "벨코즈",
@@ -5391,8 +5475,8 @@
         "full": "Velkoz.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 384,
-        "y": 0,
+        "x": 0,
+        "y": 48,
         "w": 48,
         "h": 48
       },
@@ -5422,7 +5506,7 @@
       }
     },
     "Vi": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Vi",
       "key": "254",
       "name": "바이",
@@ -5433,8 +5517,8 @@
         "full": "Vi.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 432,
-        "y": 0,
+        "x": 48,
+        "y": 48,
         "w": 48,
         "h": 48
       },
@@ -5464,7 +5548,7 @@
       }
     },
     "Viktor": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Viktor",
       "key": "112",
       "name": "빅토르",
@@ -5475,7 +5559,7 @@
         "full": "Viktor.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 0,
+        "x": 96,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5506,7 +5590,7 @@
       }
     },
     "Vladimir": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Vladimir",
       "key": "8",
       "name": "블라디미르",
@@ -5517,7 +5601,7 @@
         "full": "Vladimir.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 48,
+        "x": 144,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5548,7 +5632,7 @@
       }
     },
     "Volibear": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Volibear",
       "key": "106",
       "name": "볼리베어",
@@ -5559,7 +5643,7 @@
         "full": "Volibear.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 96,
+        "x": 192,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5590,7 +5674,7 @@
       }
     },
     "Warwick": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Warwick",
       "key": "19",
       "name": "워윅",
@@ -5601,7 +5685,7 @@
         "full": "Warwick.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 144,
+        "x": 240,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5632,7 +5716,7 @@
       }
     },
     "Xayah": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Xayah",
       "key": "498",
       "name": "자야",
@@ -5643,7 +5727,7 @@
         "full": "Xayah.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 192,
+        "x": 288,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5674,7 +5758,7 @@
       }
     },
     "Xerath": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Xerath",
       "key": "101",
       "name": "제라스",
@@ -5685,7 +5769,7 @@
         "full": "Xerath.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 240,
+        "x": 336,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5716,7 +5800,7 @@
       }
     },
     "XinZhao": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "XinZhao",
       "key": "5",
       "name": "신 짜오",
@@ -5727,7 +5811,7 @@
         "full": "XinZhao.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 288,
+        "x": 384,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5758,7 +5842,7 @@
       }
     },
     "Yasuo": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Yasuo",
       "key": "157",
       "name": "야스오",
@@ -5769,7 +5853,7 @@
         "full": "Yasuo.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 336,
+        "x": 432,
         "y": 48,
         "w": 48,
         "h": 48
@@ -5800,7 +5884,7 @@
       }
     },
     "Yorick": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Yorick",
       "key": "83",
       "name": "요릭",
@@ -5811,8 +5895,8 @@
         "full": "Yorick.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 384,
-        "y": 48,
+        "x": 0,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -5842,7 +5926,7 @@
       }
     },
     "Yuumi": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Yuumi",
       "key": "350",
       "name": "유미",
@@ -5853,8 +5937,8 @@
         "full": "Yuumi.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 432,
-        "y": 48,
+        "x": 48,
+        "y": 96,
         "w": 48,
         "h": 48
       },
@@ -5884,7 +5968,7 @@
       }
     },
     "Zac": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Zac",
       "key": "154",
       "name": "자크",
@@ -5895,7 +5979,7 @@
         "full": "Zac.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 0,
+        "x": 96,
         "y": 96,
         "w": 48,
         "h": 48
@@ -5926,7 +6010,7 @@
       }
     },
     "Zed": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Zed",
       "key": "238",
       "name": "제드",
@@ -5937,7 +6021,7 @@
         "full": "Zed.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 48,
+        "x": 144,
         "y": 96,
         "w": 48,
         "h": 48
@@ -5968,7 +6052,7 @@
       }
     },
     "Ziggs": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Ziggs",
       "key": "115",
       "name": "직스",
@@ -5979,7 +6063,7 @@
         "full": "Ziggs.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 96,
+        "x": 192,
         "y": 96,
         "w": 48,
         "h": 48
@@ -6010,7 +6094,7 @@
       }
     },
     "Zilean": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Zilean",
       "key": "26",
       "name": "질리언",
@@ -6021,7 +6105,7 @@
         "full": "Zilean.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 144,
+        "x": 240,
         "y": 96,
         "w": 48,
         "h": 48
@@ -6052,7 +6136,7 @@
       }
     },
     "Zoe": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Zoe",
       "key": "142",
       "name": "조이",
@@ -6063,7 +6147,7 @@
         "full": "Zoe.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 192,
+        "x": 288,
         "y": 96,
         "w": 48,
         "h": 48
@@ -6094,7 +6178,7 @@
       }
     },
     "Zyra": {
-      "version": "9.22.1",
+      "version": "10.1.1",
       "id": "Zyra",
       "key": "143",
       "name": "자이라",
@@ -6105,7 +6189,7 @@
         "full": "Zyra.png",
         "sprite": "champion4.png",
         "group": "champion",
-        "x": 240,
+        "x": 336,
         "y": 96,
         "w": 48,
         "h": 48

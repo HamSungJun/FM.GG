@@ -58,19 +58,29 @@ class ChartSelector extends React.Component {
         }
     }
 
+    console.log(gameData);
+
     let durationItems = [];
     while(durationMin <= Math.ceil(durationMax/60)){
-        durationItems.push(`${durationMin} ~ ${durationMin+10}`);
+        // durationItems.push(`${durationMin} ~ ${durationMin+10}`);
+        durationItems.push({
+          select : `${durationMin} ~ ${durationMin+10}`,
+          gameCount : gameData.reduce((acc,curr) => {
+            if(durationMin <= Math.round(curr["gameDuration"]/60) && Math.round(curr["gameDuration"]/60) <= durationMin + 10){
+              acc += 1;
+            }
+            return acc;
+          },0)
+        })
         durationMin = durationMin + 10;
-    }
-    
+    }    
     return durationItems.map((durationItem, index) => {
-      if(durationItem !== chartState.durationSelected){
+      if(durationItem.select.concat(`(${durationItem.gameCount})`) !== chartState.durationSelected){
         return (
           <QC_DropDownList onClick={()=>{
-            this.props.dropDownListSelect("duration",durationItem)
+            this.props.dropDownListSelect("duration",durationItem.select.concat(`(${durationItem.gameCount})`));
             this.dropDownListOpen("duration");
-          }} key={index}>{durationItem}</QC_DropDownList>
+          }} key={index}>{durationItem.select.concat(`(${durationItem.gameCount})`)}</QC_DropDownList>
         )
       }
     })

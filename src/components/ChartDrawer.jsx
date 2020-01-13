@@ -20,6 +20,8 @@ import {selectedGameKeyChange} from "../redux/actions/chartAction.js";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import am4themes_kelly from "@amcharts/amcharts4/themes/kelly";
+
 am4core.useTheme(am4themes_animated);
 
 class ChartDrawer extends React.Component {
@@ -74,12 +76,161 @@ class ChartDrawer extends React.Component {
           ["kills","assists","deaths"]
           )
       break;
+      case "Gold Earned" :
+          this.createGoldChart(
+            targetPickData,
+            chartState.durationSelected,
+            chartState.laneSelected,
+            mostPickState.analyzingKey,
+            chartState.radioSelected,
+            ["goldEarned"]
+          )
+      break;
+      case "Total Damage Dealt,Taken To Champions" :
+          this.createDamageChart(
+            targetPickData,
+            chartState.durationSelected,
+            chartState.laneSelected,
+            mostPickState.analyzingKey,
+            chartState.radioSelected,
+            ["totalDamageDealtToChampions","totalDamageTaken"]
+          )
+      break;
     }
 
   }
 
+  createDamageChart(originData, duration, lane, championKey, radioKey, gameKey){
+    
+    am4core.unuseTheme(am4themes_kelly);
+    let chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart.hiddenState.properties.opacity = 0;
+    const durationRange = duration.split(" ~ ").map(min => parseInt(min) * 60);
+    const refinedData = this.refineOriginData(originData, durationRange, lane, championKey);
+
+    chart.data = refinedData.map((gameData, index) => {
+
+      let dataPoint = {}
+      dataPoint["gameIndex"] = index+1;
+      dataPoint["gameCreation"] = gameData.gameCreation;
+      dataPoint["gameDuration"] = gameData.gameDuration;
+
+      gameKey.forEach(key => {
+        dataPoint[key] = gameData.participant[radioKey][key]
+      })
+
+      return dataPoint;
+
+    })
+
+    console.log(chart.data);
+
+    chart.colors.step = 2;
+    chart.padding(30, 30, 10, 30);
+    chart.legend = new am4charts.Legend();
+
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "gameIndex";
+    categoryAxis.title.text = "Game Indexes";
+    categoryAxis.renderer.grid.template.location = 0;
+
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.min = 0;
+    valueAxis.max = 100;
+    valueAxis.strictMinMax = true;
+    valueAxis.calculateTotals = true;
+    valueAxis.renderer.minWidth = 50;
+
+    let series1 = chart.series.push(new am4charts.ColumnSeries());
+    series1.columns.template.width = am4core.percent(80);
+    series1.columns.template.tooltipText =
+      "{name}: {valueY}";
+    series1.name = "Damage Dealt";
+    series1.dataFields.categoryX = "gameIndex";
+    series1.dataFields.valueY = "totalDamageDealtToChampions";
+    series1.dataFields.valueYShow = "totalPercent";
+    series1.dataItems.template.locations.categoryX = 0.5;
+    series1.stacked = true;
+    series1.tooltip.pointerOrientation = "vertical";
+
+    let bullet1 = series1.bullets.push(new am4charts.LabelBullet());
+    bullet1.interactionsEnabled = false;
+    bullet1.label.text = "{valueY.totalPercent.formatNumber('#.00')}%";
+    bullet1.label.fill = am4core.color("#ffffff");
+    bullet1.locationY = 0.5;
+
+    let series2 = chart.series.push(new am4charts.ColumnSeries());
+    series2.columns.template.width = am4core.percent(80);
+    series2.columns.template.tooltipText =
+      "{name}: {valueY}";
+    series2.name = "Damage Taken";
+    series2.dataFields.categoryX = "gameIndex";
+    series2.dataFields.valueY = "totalDamageTaken";
+    series2.dataFields.valueYShow = "totalPercent";
+    series2.dataItems.template.locations.categoryX = 0.5;
+    series2.stacked = true;
+    series2.tooltip.pointerOrientation = "vertical";
+
+    let bullet2 = series2.bullets.push(new am4charts.LabelBullet());
+    bullet2.interactionsEnabled = false;
+    bullet2.label.text = "{valueY.totalPercent.formatNumber('#.00')}%";
+    bullet2.locationY = 0.5;
+    bullet2.label.fill = am4core.color("#ffffff");
+
+    chart.scrollbarX = new am4core.Scrollbar();
+    return this.chart = chart;
+
+  }
+
+  createGoldChart(originData, duration, lane, championKey, radioKey, gameKey){
+
+    am4core.useTheme(am4themes_kelly);
+    let chart = am4core.create("chartdiv", am4charts.XYChart);
+    const durationRange = duration.split(" ~ ").map(min => parseInt(min) * 60);
+    const refinedData = this.refineOriginData(originData, durationRange, lane, championKey);
+   
+    chart.data = refinedData.map((gameData, index) => {
+
+      let dataPoint = {}
+      dataPoint["gameIndex"] = index+1;
+      dataPoint["gameCreation"] = gameData.gameCreation;
+      dataPoint["gameDuration"] = `${parseInt(gameData.gameDuration/60)}분 ${gameData.gameDuration%60}초`;
+
+      gameKey.forEach(key => {
+        dataPoint[key] = gameData.participant[radioKey][key]
+      })
+
+      return dataPoint;
+
+    })
+
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "gameIndex";
+    categoryAxis.title.text = "Game Indexes";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.title.text = "Gold Earned";
+
+    let series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = gameKey;
+    series.dataFields.categoryX = "gameIndex";
+    series.name = "Gold Earned";
+    series.columns.template.tooltipText = `[bold]골드 획득 : {valueY}[/]
+    [bold]플레이 시간: {gameDuration}`;
+    series.columns.template.fillOpacity = .8;
+
+    let columnTemplate = series.columns.template;
+    columnTemplate.strokeWidth = 2;
+    columnTemplate.strokeOpacity = 1;
+
+    return this.chart = chart;
+  }
+
   createKDAChart(originData, duration, lane, championKey, radioKey, gameKey){
 
+    am4core.unuseTheme(am4themes_kelly);
     let chart = am4core.create("chartdiv", am4charts.XYChart);
     const durationRange = duration.split(" ~ ").map(min => parseInt(min) * 60);
     const refinedData = this.refineOriginData(originData, durationRange, lane, championKey);
@@ -133,7 +284,7 @@ class ChartDrawer extends React.Component {
     chart.legend = new am4charts.Legend();
     chart.cursor = new am4charts.XYCursor();
 
-    this.chart = chart;
+    return this.chart = chart;
 }
 
   refineOriginData(originData, durationRange, lane, championKey){
@@ -163,7 +314,7 @@ class ChartDrawer extends React.Component {
 
     const {chartState} = this.props;
 
-    const statKeys = ["KDA", "goldEarned", "totalDamageDealtToChampions", "totalDamageTaken", "totalMinionsKilled", "visionScore", "visionWardsBoughtInGame", "wardsKilled", "wardsPlaced"];
+    const statKeys = ["KDA", "Gold Earned", "Total Damage Dealt,Taken To Champions", "totalMinionsKilled", "visionScore", "visionWardsBoughtInGame", "wardsKilled", "wardsPlaced"];
 
     const timelineKeys = ["creepsPerMinDeltas", "damageTakenPerMinDeltas", "goldPerMinDeltas", "xpPerMinDeltas"];
 

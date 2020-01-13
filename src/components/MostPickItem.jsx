@@ -61,7 +61,7 @@ class MostPickItem extends React.Component{
                 </MP_Game_Gauge_Box>
                 <MP_Content_Box iconColor={controlState.color} isAnalyzing={this.props.pickData.isAnalyzing}>
                     <MP_Content_Champion align={"flex-start"}>
-                        <MP_Content_Champion_Image src={DATA_DRAGON_CHAMPION_SQUARE_IMAGE_URL.concat(this.props.pickData.image.full)}></MP_Content_Champion_Image>
+                        <MP_Content_Champion_Image src={DATA_DRAGON_CHAMPION_SQUARE_IMAGE_URL.concat((this.props.pickData.image.full))}></MP_Content_Champion_Image>
                     </MP_Content_Champion>
                     <MP_Content_Info direction={"column"} align={"flex-start"} justify={"space-around"}>
                         <MP_Champion_Name>
