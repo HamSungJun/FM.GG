@@ -9,7 +9,7 @@
 
 | Frontend | Backend | Database | Hosting |
 |:--------:|:--------:|:-------:|:-------:|
-| `React` | `Node.js` | | `AWS EC2`
+| `React` | `Node.js` | `Mongo DB` | `AWS EC2`
 | `Redux` | `Express.js` |  |
 | `Redux-Saga` |  | |
 |`React-Router`|
